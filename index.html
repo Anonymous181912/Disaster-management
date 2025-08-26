@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafetyFirst - Disaster Preparedness for Students</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <span class="brand-text">SafetyFirst</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">🏠 Home</a>
+                <a href="#learn" class="nav-link">📚 Learn</a>
+                <a href="#dos-donts" class="nav-link">Do's & Don'ts</a>
+                <a href="#emergency-kit" class="nav-link">Emergency Kit</a>
+                <a href="#quiz" class="nav-link">🧠 Quiz</a>
+                <a href="#videos" class="nav-link">📺 Videos</a>
+                <a href="#contact" class="nav-link">📧 Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>✨ 🎓 For Students Like You!</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="text-primary">Be Ready,</span><br>
+                    <span class="gradient-text">Stay Safe!</span>
+                </h1>
+                <p class="hero-description">
+                    Learn safety through fun games and videos. Join students becoming safety heroes!
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-large">
+                        ▶️ 🚀 Start Learning Now!
+                    </button>
+                    <button class="btn btn-outline btn-large">
+                        📱 Get Free App
+                    </button>
+                </div>
+                <div class="hero-image">
+                    
+                    <div class="image-overlay">
+                        <div class="image-badge">
+                            <div class="status-dot"></div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disaster Types Section -->
+    <section class="disaster-types-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🌪️ Disaster Types</h2>
+                <p class="section-description">
+                    Learn about different disasters and how to stay safe! Click on each card to discover more! 🔍
+                </p>
+            </div>
+            <div class="disaster-grid">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front earthquake">
+                            <div class="disaster-icon">🏔️</div>
+                            <h3>🏔️ Earthquake</h3>
+                            <p>Hover to learn more!</p>
+                        </div>
+                        <div class="flip-card-back earthquake">
+                            <h3>🏔️ Earthquake</h3>
+                            <p class="safety-tip">Drop, Cover, Hold!</p>
+                            <button class="btn btn-small">Learn More 📚</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flood">
+                            <div class="disaster-icon">🌊</div>
+                            <h3>🌊 Flood</h3>
+                            <p>Hover to learn more!</p>
+                        </div>
+                        <div class="flip-card-back flood">
+                            <h3>🌊 Flood</h3>
+                            <p class="safety-tip">Move to higher ground!</p>
+                            <button class="btn btn-small">Learn More 📚</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front fire">
+                            <div class="disaster-icon">🔥</div>
+                            <h3>🔥 Fire</h3>
+                            <p>Hover to learn more!</p>
+                        </div>
+                        <div class="flip-card-back fire">
+                            <h3>🔥 Fire</h3>
+                            <p class="safety-tip">Stop, Drop, Roll!</p>
+                            <button class="btn btn-small">Learn More 📚</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front cyclone">
+                            <div class="disaster-icon">🌪️</div>
+                            <h3>🌪️ Cyclone</h3>
+                            <p>Hover to learn more!</p>
+                        </div>
+                        <div class="flip-card-back cyclone">
+                            <h3>🌪️ Cyclone</h3>
+                            <p class="safety-tip">Stay indoors safely!</p>
+                            <button class="btn btn-small">Learn More 📚</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Do's and Don'ts Section -->
+    <section id="dos-donts" class="dos-donts-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">✅ Do's & ❌ Don'ts</h2>
+                <p class="section-description">Simple rules to remember during emergencies! 🧠💡</p>
+            </div>
+            <div class="dos-donts-grid">
+                <div class="dos-section">
+                    <h3 class="subsection-title dos-title">✅ DO's - Smart Actions!</h3>
+                    <div class="tips-list">
+                        <div class="tip-item dos-item">Stay calm and think clearly</div>
+                        <div class="tip-item dos-item">Call emergency numbers immediately</div>
+                        <div class="tip-item dos-item">Keep emergency kit ready</div>
+                        <div class="tip-item dos-item">Help family members and friends</div>
+                        <div class="tip-item dos-item">Listen to official announcements</div>
+                    </div>
+                </div>
+                <div class="donts-section">
+                    <h3 class="subsection-title donts-title">❌ DON'Ts - Avoid These!</h3>
+                    <div class="tips-list">
+                        <div class="tip-item donts-item">Don't panic or run around</div>
+                        <div class="tip-item donts-item">Don't use elevators during emergencies</div>
+                        <div class="tip-item donts-item">Don't spread false information</div>
+                        <div class="tip-item donts-item">Don't ignore evacuation orders</div>
+                        <div class="tip-item donts-item">Don't touch electrical wires</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Kit Section -->
+    <section id="emergency-kit" class="emergency-kit-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🎒 Emergency Kit Essentials</h2>
+                <p class="section-description">
+                    Pack these items to be prepared for any emergency! Check them off as you collect them! ✅
+                </p>
+            </div>
+            <div class="kit-grid">
+                <div class="kit-item">
+                    <div class="kit-icon">💧</div>
+                    <h3>Water (3 days supply)</h3>
+                    <p>1 gallon per person per day</p>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="water">
+                        <label for="water">Got it! ✅</label>
+                    </div>
+                </div>
+                <div class="kit-item">
+                    <div class="kit-icon">🍞</div>
+                    <h3>Non-perishable Food</h3>
+                    <p>3-day supply for each person</p>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="food">
+                        <label for="food">Got it! ✅</label>
+                    </div>
+                </div>
+                <div class="kit-item">
+                    <div class="kit-icon">🔦</div>
+                    <h3>Flashlight</h3>
+                    <p>Battery-powered or hand crank</p>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="flashlight">
+                        <label for="flashlight">Got it! ✅</label>
+                    </div>
+                </div>
+                <div class="kit-item">
+                    <div class="kit-icon">📻</div>
+                    <h3>Emergency Radio</h3>
+                    <p>Battery-powered or hand crank</p>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="radio">
+                        <label for="radio">Got it! ✅</label>
+                    </div>
+                </div>
+                <div class="kit-item">
+                    <div class="kit-icon">🔋</div>
+                    <h3>Extra Batteries</h3>
+                    <p>For flashlight and radio</p>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="batteries">
+                        <label for="batteries">Got it! ✅</label>
+                    </div>
+                </div>
+                <div class="kit-item">
+                    <div class="kit-icon">🩹</div>
+                    <h3>First Aid Kit</h3>
+                    <p>Bandages, medicines, etc.</p>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="firstaid">
+                        <label for="firstaid">Got it! ✅</label>
+                    </div>
+                </div>
+                <div class="kit-item">
+                    <div class="kit-icon">💊</div>
+                    <h3>Medications</h3>
+                    <p>7-day supply of prescriptions</p>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="medications">
+                        <label for="medications">Got it! ✅</label>
+                    </div>
+                </div>
+                <div class="kit-item">
+                    <div class="kit-icon">📱</div>
+                    <h3>Phone Charger</h3>
+                    <p>Portable battery pack</p>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="charger">
+                        <label for="charger">Got it! ✅</label>
+                    </div>
+                </div>
+                <div class="kit-item">
+                    <div class="kit-icon">💰</div>
+                    <h3>Cash & Cards</h3>
+                    <p>Small bills and coins</p>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="cash">
+                        <label for="cash">Got it! ✅</label>
+                    </div>
+                </div>
+                <div class="kit-item">
+                    <div class="kit-icon">📄</div>
+                    <h3>Important Documents</h3>
+                    <p>Copies in waterproof container</p>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="documents">
+                        <label for="documents">Got it! ✅</label>
+                    </div>
+                </div>
+                <div class="kit-item">
+                    <div class="kit-icon">🧥</div>
+                    <h3>Warm Clothing</h3>
+                    <p>Blankets and extra clothes</p>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="clothing">
+                        <label for="clothing">Got it! ✅</label>
+                    </div>
+                </div>
+                <div class="kit-item">
+                    <div class="kit-icon">🧼</div>
+                    <h3>Hygiene Items</h3>
+                    <p>Soap, toothbrush, sanitizer</p>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="hygiene">
+                        <label for="hygiene">Got it! ✅</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="quiz-section">
+        <div class="container">
+            <div class="quiz-container">
+                <h2 class="section-title">🧠 Test Your Safety Knowledge!</h2>
+                <p class="section-description">Take our fun quiz and become a certified Safety Hero! 🏆</p>
+                <div class="quiz-card">
+                    <div class="quiz-icon">🎯</div>
+                    <h3>Interactive Safety Quiz</h3>
+                    <p>Answer questions about earthquakes, fires, floods, and more! Earn points and unlock achievement badges! 🏅</p>
+                    <div class="quiz-stats">
+                        <div class="stat">
+                            <div class="stat-number">20</div>
+                            <div class="stat-label">Questions</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">10 min</div>
+                            <div class="stat-label">Duration</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">🏆</div>
+                            <div class="stat-label">Certificate</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-large" onclick="startQuiz()">
+                        ▶️ 🎮 Start Quiz Game!
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Added quiz modal for interactive quiz experience -->
+        <div id="quiz-modal" class="quiz-modal">
+            <div class="quiz-modal-content">
+                <div class="quiz-header">
+                    <h3 id="quiz-title">🧠 Disaster Preparedness Quiz</h3>
+                    <div class="quiz-progress">
+                        <span id="question-counter">Question 1 of 20</span>
+                        <div class="progress-bar">
+                            <div id="progress-fill" class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-content">
+                    <div id="question-container">
+                        <h4 id="question-text"></h4>
+                        <div id="options-container" class="options-container">
+                            <!-- Options will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div id="result-container" class="result-container" style="display: none;">
+                        <div class="result-icon">🏆</div>
+                        <h3 id="result-title"></h3>
+                        <div class="score-display">
+                            <div class="score-circle">
+                                <span id="final-score">0</span>
+                                <span class="score-total">/20</span>
+                            </div>
+                        </div>
+                        <p id="result-message"></p>
+                        <div class="result-actions">
+                            <button class="btn btn-primary" onclick="restartQuiz()">🔄 Try Again</button>
+                            <button class="btn btn-secondary" onclick="closeQuiz()">✅ Done</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-footer">
+                    <button id="prev-btn" class="btn btn-outline" onclick="previousQuestion()" disabled>← Previous</button>
+                    <div class="quiz-score">
+                        Score: <span id="current-score">0</span>
+                    </div>
+                    <button id="next-btn" class="btn btn-primary" onclick="nextQuestion()" disabled>Next →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Hub Section -->
+    <section id="learn" class="learning-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📚 Interactive Learning Hub</h2>
+                <p class="section-description">Master disaster safety through hands-on activities and real-world scenarios! 🎯</p>
+            </div>
+            <div class="learning-grid">
+                <div class="learning-card scenario">
+                    <div class="learning-icon">🎭</div>
+                    <h3>Scenario Training</h3>
+                    <p>Practice real emergency situations in a safe virtual environment</p>
+                    <div class="progress-list">
+                        <div class="progress-item completed">
+                            <span>🏠 Home Emergency</span>
+                            <span class="status complete">✓ Complete</span>
+                        </div>
+                        <div class="progress-item learning">
+                            <span>🏫 School Drill</span>
+                            <span class="status learn">📚 Learn</span>
+                        </div>
+                        <div class="progress-item locked">
+                            <span>🌆 Public Space</span>
+                            <span class="status locked">🔒 Locked</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Start Scenario</button>
+                </div>
+                <div class="learning-card skills">
+                    <div class="learning-icon">🛡️</div>
+                    <h3>Safety Skills</h3>
+                    <p>Learn essential life-saving techniques step by step</p>
+                    <div class="progress-list">
+                        <div class="progress-item">
+                            <span>🩹 First Aid Basics</span>
+                            <span class="status progress">85%</span>
+                        </div>
+                        <div class="progress-item">
+                            <span>🔥 Fire Safety</span>
+                            <span class="status progress">60%</span>
+                        </div>
+                        <div class="progress-item">
+                            <span>💨 CPR Training</span>
+                            <span class="status progress">0%</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary">Continue Learning</button>
+                </div>
+                <div class="learning-card drills">
+                    <div class="learning-icon">🚨</div>
+                    <h3>Virtual Drills</h3>
+                    <p>Practice emergency procedures with timed challenges</p>
+                    <div class="progress-list">
+                        <div class="progress-item">
+                            <span>🏃‍♂️ Evacuation Drill</span>
+                            <span class="status time">2:30</span>
+                        </div>
+                        <div class="progress-item">
+                            <span>📞 Emergency Call</span>
+                            <span class="status time">1:45</span>
+                        </div>
+                        <div class="progress-item">
+                            <span>🎒 Kit Assembly</span>
+                            <span class="status time">3:15</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-accent">Start Drill</button>
+                </div>
+            </div>
+            <div class="progress-tracker">
+                <h3>🏆 Your Learning Progress</h3>
+                <p>Track your journey to becoming a Safety Hero!</p>
+                <div class="progress-stats">
+                    <div class="progress-stat">
+                        <div class="progress-number">75%</div>
+                        <div class="progress-label">Overall Progress</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-stat">
+                        <div class="progress-number">12</div>
+                        <div class="progress-label">Modules Completed</div>
+                    </div>
+                    <div class="progress-stat">
+                        <div class="progress-number">8</div>
+                        <div class="progress-label">Badges Earned</div>
+                    </div>
+                    <div class="progress-stat">
+                        <div class="progress-number">450</div>
+                        <div class="progress-label">Points Scored</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos" class="videos-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📺 Awareness Videos</h2>
+                <p class="section-description">Watch fun and educational videos to learn disaster safety! 🎬✨</p>
+            </div>
+            <div class="videos-grid">
+                <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=I0ureVMVzP8', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🏔️</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">8:45</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🏔️ How to Prepare for an Earthquake</h3>
+                        <p>San José Fire Department - Official Guide</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=qKLeQAuscBg', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🚨</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">12:30</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🚨 Earthquake Response Technology</h3>
+                        <p>LAFD - Experience and Technology for Preparedness</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=NJpoSR4ws2Y', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🌊</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">15:20</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🌊 Flooding in Sarasota, Florida 2024</h3>
+                        <p>Emergency Response and Safety Tips</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=zYt03K9AnL0', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🌪️</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">10:15</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🌪️ Tropical Storm Debby in Sarasota 2024</h3>
+                        <p>Real Storm Impact and Community Response</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=OipafrhCe00', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🌀</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">7:45</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🌀 Virginia's Hurricane Preparedness Plan 2024</h3>
+                        <p>State-Level Emergency Planning</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=BLEPakj1YTY', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🎒</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">7:20</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🎒 Emergency Kit Essentials</h3>
+                        <p>How to Build a Disaster Kit</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=kBhfVrJgUg8', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🔥</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">4:15</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🔥 Fire Safety for Children</h3>
+                        <p>Stop, Drop, Roll - Fire Safety Tips</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=VtliFnyDr7M', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🩹</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">8:15</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🩹 Basic First Aid for Kids</h3>
+                        <p>Simple First Aid Techniques</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer/Contact Section -->
+    <footer id="contact" class="footer-section">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>🚨 Emergency Numbers</h3>
+                    <div class="emergency-contacts">
+                        <div class="emergency-card medical">
+                            <div class="emergency-type">🚑 Medical Emergency</div>
+                            <div class="emergency-number">108</div>
+                        </div>
+                        <div class="emergency-card fire">
+                            <div class="emergency-type">🚒 Fire Emergency</div>
+                            <div class="emergency-number">101</div>
+                        </div>
+                        <div class="emergency-card police">
+                            <div class="emergency-type">👮 Police Emergency</div>
+                            <div class="emergency-number">100</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>📧 Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-label">📧 Email</div>
+                            <div class="contact-value">safety@safetyfirst.edu</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label">📱 WhatsApp</div>
+                            <div class="contact-value">+91 98765 43210</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label">🌐 Website</div>
+                            <div class="contact-value">www.safetyfirst.edu</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>🎓 About SafetyFirst</h3>
+                    <p>Making disaster preparedness fun and accessible for students worldwide through interactive learning experiences.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <svg class="footer-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span class="footer-brand-text">SafetyFirst</span>
+                </div>
+                <p>© 2025 SafetyFirst Education. Making disaster preparedness fun for students worldwide! 🌍✨</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
