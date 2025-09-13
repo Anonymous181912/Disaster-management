@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafetyFirst - Disaster Preparedness for Students</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Chatbot</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Floating Chat Toggle Button */
+    #chatbot-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 26px;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+      transition: transform 0.2s, background 0.3s;
+      z-index: 1000;
+    }
+    #chatbot-toggle:hover {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+    }
+
+    /* Chatbot Box */
+    #chatbot {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 340px;
+      max-height: 450px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+      display: none; /* hidden by default */
+      flex-direction: column;
+      overflow: hidden;
+      font-family: "Inter", sans-serif;
+      z-index: 1000;
+    }
+
+    /* Header */
+    .chatbot-header {
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+      color: white;
+      padding: 12px;
+      font-weight: 600;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    /* Messages area */
+    .chat-messages {
+      flex: 1;
+      padding: 12px;
+      overflow-y: auto;
+      background: linear-gradient(to bottom, #f9fafb, #ffffff);
+    }
+    .chat-messages::-webkit-scrollbar {
+      width: 6px;
+    }
+    .chat-messages::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+
+    /* Message bubbles */
+    .bot-message, .user-message {
+      margin-bottom: 10px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      max-width: 80%;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .bot-message {
+      background: #f3f4f6;
+      color: #111827;
+      align-self: flex-start;
+    }
+    .user-message {
+      background: #2563eb;
+      color: white;
+      align-self: flex-end;
+      margin-left: auto;
+    }
+
+    /* Input Area */
+    .chat-input-container {
+      display: flex;
+      padding: 8px;
+      border-top: 1px solid #e5e7eb;
+      background: #f9fafb;
+    }
+    .chat-input-container input {
+      flex: 1;
+      padding: 8px 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;
+    }
+    .chat-input-container input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
+    }
+    .chat-input-container button {
+      margin-left: 8px;
+      background: #2563eb;
+      color: white;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .chat-input-container button:hover {
+      background: #1e40af;
+    }
+  </style>
+</head>
+<body>
+  <!-- ✅ AI Chatbot -->
+  <div id="chatbot">
+    <div class="chatbot-header">🤖 AI Chatbot</div>
+    <div id="chat-messages" class="chat-messages">
+      <div class="bot-message">Hello! 👋 Ask me anything about safety 🚀</div>
+    </div>
+    <div class="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Ask me anything..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <!-- Floating Toggle Button -->
+  <button id="chatbot-toggle" onclick="toggleChat()">💬</button>
+
+  <script>
+    // Toggle Chatbox
+    function toggleChat() {
+      const chatbot = document.getElementById("chatbot");
+      chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
+    }
+
+    // Send Message
+    function sendMessage() {
+      const input = document.getElementById("chat-input");
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      const chatBox = document.getElementById("chat-messages");
+
+      // User message
+      const userMsg = document.createElement("div");
+      userMsg.className = "user-message";
+      userMsg.textContent = msg;
+      chatBox.appendChild(userMsg);
+
+      // Example Bot Reply
+      const botMsg = document.createElement("div");
+      botMsg.className = "bot-message";
+      botMsg.textContent = "✅ Got it! I'll help you with: " + msg;
+      chatBox.appendChild(botMsg);
+
+      // Auto scroll
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      input.value = "";
+    }
+  </script>
+  <!-- ===== POPUP HTML (keep this) ===== -->
+<div id="helpline-popup" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+  <div class="bg-white rounded-lg p-6 w-80">
+    <h3 class="font-bold mb-4">🚨 Emergency Numbers</h3>
+    <ul class="space-y-2">
+      <li class="flex justify-between"><span>🔥 Fire</span><a href="tel:101" class="text-blue-600 font-bold">101</a></li>
+      <li class="flex justify-between"><span>🚑 Ambulance</span><a href="tel:108" class="text-blue-600 font-bold">108</a></li>
+      <li class="flex justify-between"><span>🌪️ NDRF</span><a href="tel:1078" class="text-blue-600 font-bold">1078</a></li>
+      <li class="flex justify-between"><span>🚓 Police</span><a href="tel:1078" class="text-blue-600 font-bold">112</a></li>
+    </ul>
+    <button onclick="toggleHelpline()" class="mt-4 w-full bg-gray-200 rounded py-2">Close</button>
+  </div>
+</div>
+
+<!-- ===== SCRIPT (last thing before </body>) ===== -->
+<script>
+function toggleHelpline() {
+  document.getElementById('helpline-popup').classList.toggle('hidden');
+}
+</script>
+</body>
+</body>
+</html>
+
+  <!-- ================= Highlight Section ================= -->
+  <div class="highlight-ticker bg-gray-100 p-2 shadow">
+    <span class="highlight-label font-bold">⚡ Disaster Highlights:</span>
+    <div class="highlight-track inline-block ml-2">
+      <div id="highlight-items">
+        <span>Loading latest disasters...</span>
+      </div>
+    </div>
+  </div>
+  <div id="disaster-modal" class="modal fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-6 w-96 shadow-lg">
+      <h2 id="modal-title" class="text-xl font-bold mb-2"></h2>
+      <p id="modal-date" class="text-gray-500 text-sm mb-4"></p>
+      <p id="modal-desc" class="mb-4"></p>
+      <a id="modal-link" href="#" target="_blank" class="text-blue-600 font-semibold">🔗 Read Full Article</a>
+      <button 
+  class="mt-4 w-full bg-gray-200 rounded py-2" 
+  onclick="document.getElementById('disaster-modal').style.display='none'">
+  Close
+</button>
+
+    </div>
+  </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+      
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <span class="brand-text">SafetyFirst</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">🏠 Home</a>
+                <a href="#dos-donts" class="nav-link">Do's & Don'ts</a>
+             <button id="helpline-btn" onclick="toggleHelpline()">📞 Helpline</button>
+                <a href="#quiz" class="nav-link">🧠 Quiz</a>
+                <a href="#videos" class="nav-link">📺 Videos</a>
+                <a href="#contact" class="nav-link">📧 Contact</a>
+               <button class="nav-link" id="adminBtn" onclick="openDashboard()">📊 Admin</button>
+
+
+                <a href="login.html" onclick="localStorage.clear(); firebase.auth().signOut();">logout</a>
+    </div>
+        </div>
+    </nav>
+
+  
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>✨ 🎓 For Students Like You!</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="text-primary">Be Ready,</span><br>
+                    <span class="gradient-text">Stay Safe!</span>
+                </h1>
+                <p class="hero-description">
+                    Learn safety through fun games and videos. Join students becoming safety heroes!
+                </p>
+                <div class="hero-buttons">
+                    <a href="#learn" class="btn btn-primary btn-large">
+  ▶️ 🚀 Start Learning Now!
+</a>
+                    
+                    
+                </div>
+                <div class="hero-image">
+                    
+                    <div class="image-overlay">
+                        <div class="image-badge">
+                            <div class="status-dot"></div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+
+    <!-- Disaster Types Section -->
+    <section class="disaster-types-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🌪️ Disaster Types</h2>
+                <p class="section-description">
+                    Learn about different disasters and how to stay safe! Click on each card to get exciting quote!
+                </p>
+            </div>
+            <div class="disaster-grid">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front earthquake">
+                            <div class="disaster-icon">🏔️</div>
+                            <h3>🏔️ Earthquake</h3>
+                            <p>Hover to learn more!</p>
+                        </div>
+                        <div class="flip-card-back earthquake">
+                            <h3>🏔️ Earthquake</h3>
+                            <p class="safety-tip">Drop, Cover, Hold!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flood">
+                            <div class="disaster-icon">🌊</div>
+                            <h3>🌊 Flood</h3>
+                            <p>Hover to learn more!</p>
+                        </div>
+                        <div class="flip-card-back flood">
+                            <h3>🌊 Flood</h3>
+                            <p class="safety-tip">Move to higher ground!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front fire">
+                            <div class="disaster-icon">🔥</div>
+                            <h3>🔥 Fire</h3>
+                            <p>Hover to learn more!</p>
+                        </div>
+                        <div class="flip-card-back fire">
+                            <h3>🔥 Fire</h3>
+                            <p class="safety-tip">Stop, Drop, Roll!</p>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front cyclone">
+                            <div class="disaster-icon">🌪️</div>
+                            <h3>🌪️ Cyclone</h3>
+                            <p>Hover to learn more!</p>
+                        </div>
+                        <div class="flip-card-back cyclone">
+                            <h3>🌪️ Cyclone</h3>
+                            <p class="safety-tip">Stay indoors safely!</p>            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Do's and Don'ts Section -->
+    <section id="dos-donts" class="dos-donts-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">✅ Do's & ❌ Don'ts</h2>
+                <p class="section-description">Simple rules to remember during emergencies! 🧠💡</p>
+            </div>
+            <div class="dos-donts-grid">
+                <div class="dos-section">
+                    <h3 class="subsection-title dos-title">✅ DO's - Smart Actions!</h3>
+                    <div class="tips-list">
+                        <div class="tip-item dos-item">Stay calm and think clearly</div>
+                        <div class="tip-item dos-item">Call emergency numbers immediately</div>
+                        <div class="tip-item dos-item">Keep emergency kit ready</div>
+                        <div class="tip-item dos-item">Help family members and friends</div>
+                        <div class="tip-item dos-item">Listen to official announcements</div>
+                    </div>
+                </div>
+                <div class="donts-section">
+                    <h3 class="subsection-title donts-title">❌ DON'Ts - Avoid These!</h3>
+                    <div class="tips-list">
+                        <div class="tip-item donts-item">Don't panic or run around</div>
+                        <div class="tip-item donts-item">Don't use elevators during emergencies</div>
+                        <div class="tip-item donts-item">Don't spread false information</div>
+                        <div class="tip-item donts-item">Don't ignore evacuation orders</div>
+                        <div class="tip-item donts-item">Don't touch electrical wires</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+        <!-- ================= AI-Powered Personalized Risk Report ================= -->
+    <section id="risk-report" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="section-header text-center mb-8">
+                <h2 class="section-title">📍 Your Personalized Risk Report</h2>
+                <p class="section-description">
+                    Enter your school's pincode to get an AI-powered disaster risk assessment for your area.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-6 max-w-2xl mx-auto">
+                <!-- Input Form -->
+                <div class="flex flex-col sm:flex-row gap-3 mb-6">
+                    <input type="text" id="pincode-input" placeholder="Enter Pincode (e.g., 400001 for Mumbai)" class="flex-grow border rounded-lg px-4 py-2 text-center sm:text-left">
+                    <button onclick="generateRiskReport()" class="btn btn-primary">🔍 Analyze Risk</button>
+                </div>
+
+                <!-- Report Card Area -->
+                <div id="risk-report-container">
+                    <div id="risk-placeholder" class="text-center text-gray-400 py-8">
+                        Your personalized report will appear here.
+                    </div>
+                    <div id="risk-loader" class="hidden text-center py-8">
+                        <svg class="animate-spin h-8 w-8 text-blue-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <p class="mt-2 font-semibold">Analyzing risk factors...</p>
+                    </div>
+                    <div id="risk-report-card" class="hidden">
+                        <!-- Dynamic content will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
+
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="quiz-section">
+        <div class="container">
+            <div class="quiz-container">
+                <h2 class="section-title">🧠 Test Your Safety Knowledge!</h2>
+                <p class="section-description">Take our fun quiz and become a certified Safety Hero! 🏆</p>
+                <div class="quiz-card">
+                    <div class="quiz-icon">🎯</div>
+                    <h3>Interactive Safety Quiz</h3>
+                    <p>Answer questions about earthquakes, fires, floods, and more! Earn points and unlock achievement badges! 🏅</p>
+                    <div class="quiz-stats">
+                        <div class="stat">
+                            <div class="stat-number">20</div>
+                            <div class="stat-label">Questions</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">10 min</div>
+                            <div class="stat-label">Duration</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">🏆</div>
+                            <div class="stat-label">Certificate</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-large" onclick="startQuiz()">
+                        ▶️ 🎮 Start Quiz Game!
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Added quiz modal for interactive quiz experience -->
+        <div id="quiz-modal" class="quiz-modal">
+            <div class="quiz-modal-content">
+                <div class="quiz-header">
+                    <h3 id="quiz-title">🧠 Disaster Preparedness Quiz</h3>
+                    <div class="quiz-progress">
+                        <span id="question-counter">Question 1 of 20</span>
+                        <div class="progress-bar">
+                            <div id="progress-fill" class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-content">
+                    <div id="question-container">
+                        <h4 id="question-text"></h4>
+                        <div id="options-container" class="options-container">
+                            <!-- Options will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div id="result-container" class="result-container" style="display: none;">
+                        <div class="result-icon">🏆</div>
+                        <h3 id="result-title"></h3>
+                        <div class="score-display">
+                            <div class="score-circle">
+                                <span id="final-score">0</span>
+                                <span class="score-total">/20</span>
+                            </div>
+                        </div>
+                        <p id="result-message"></p>
+                        <div class="result-actions">
+                            <button class="btn btn-primary" onclick="restartQuiz()">🔄 Try Again</button>
+                            <button class="btn btn-secondary" onclick="closeQuiz()">✅ Done</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-footer">
+                    <button id="prev-btn" class="btn btn-outline" onclick="previousQuestion()" disabled>← Previous</button>
+                    <div class="quiz-score">
+                        Score: <span id="current-score">0</span>
+                    </div>
+                    <button id="next-btn" class="btn btn-primary" onclick="nextQuestion()" disabled>Next →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Hub Section -->
+  <section id="learn" class="learning-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">📚 Interactive Learning Hub</h2>
+      <p class="section-description">
+        Master disaster safety through hands-on activities and real-world scenarios! 🎯
+      </p>
+    </div>
+
+    <!-- Learning Grid -->
+    <div class="learning-grid">
+      
+      <!-- Scenario Training -->
+      <div class="learning-card scenario" data-type="scenario">
+        <div class="learning-icon">🎭</div>
+        <h3>Scenario Training</h3>
+        <p>Practice real emergency situations in a safe virtual environment</p>
+        <div class="progress-list">
+          <div class="progress-item completed">
+            <span>🏠 Home Emergency</span>
+            <span class="status complete">✓ Complete</span>
+          </div>
+          <div class="progress-item learning">
+            <span>🏫 School Drill</span>
+            <span class="status learn">📚 Learn</span>
+          </div>
+          <div class="progress-item locked">
+            <span>🌆 Public Space</span>
+            <span class="status locked">🔒 Locked</span>
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="startScenario()">▶️ Start Scenario</button>
+      </div>
+
+      <!-- Safety Skills -->
+      <div class="learning-card skills" data-type="skills">
+        <div class="learning-icon">🛡️</div>
+        <h3>Safety Skills</h3>
+        <p>Learn essential life-saving techniques step by step</p>
+        <div class="progress-list">
+          <div class="progress-item">
+            <span>🩹 First Aid Basics</span>
+            <span class="status progress">85%</span>
+          </div>
+          <div class="progress-item">
+            <span>🔥 Fire Safety</span>
+            <span class="status progress">60%</span>
+          </div>
+          <div class="progress-item">
+            <span>💨 CPR Training</span>
+            <span class="status progress">0%</span>
+          </div>
+        </div>
+      <button class="btn btn-secondary" onclick="openSafetySkills()">Continue Learning</button>
+
+
+      </div>
+  
+
+      <!-- Virtual Drills -->
+      <div class="learning-card drills" data-type="drills">
+        <div class="learning-icon">🚨</div>
+        <h3>Virtual Drills</h3>
+        <p>Practice emergency procedures with timed challenges</p>
+        <div class="progress-list">
+          <div class="progress-item">
+            <span>🏃‍♂️ Evacuation Drill</span>
+            <span class="status time">2:30</span>
+          </div>
+          <div class="progress-item">
+            <span>📞 Emergency Call</span>
+            <span class="status time">1:45</span>
+          </div>
+          <div class="progress-item">
+            <span>🎒 Kit Assembly</span>
+            <span class="status time">3:15</span>
+          </div>
+        </div>
+       <button class="btn btn-primary" onclick="startDrill()">Start Drill</button>
+      </div>
+    </div>
+    <section id="safety-skills-videos" style="display: none;"</section>
+   <h3>🎥 Safety Skills Training</h3>
+  <div class="videos-grid">
+    <div class="video-card">
+      <iframe width="100%" height="315"
+        src="https://www.youtube.com/embed/XdhbQtY6buY"
+        title="First Aid Basics India"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+</iframe>
+      <p>🩹 First Aid Basics</p>
+    </div>
+
+    <div class="video-card">
+      <iframe width="100%" height="315"
+        src="https://www.youtube.com/embed/gUcNA19P6M0"
+        title="CPR Training India"
+        frameborder="0"
+        allowfullscreen>
+</iframe>
+      <p>❤️ CPR Training</p>
+    </div>
+
+    <div class="video-card">
+      <iframe width="100%" height="315"
+        src="https://www.youtube.com/embed/75QGSxFUrvQ?si=eMl1E_HQjJ4vkn72"
+        title="Fire Safety India"
+        frameborder="0"
+        allowfullscreen>
+</iframe>
+      <p>🔥 Fire Safety</p>
+    </div>
+  </div>
+
+  <!-- Back button -->
+  <button class="btn btn-secondary mt-4" onclick="closeSafetySkills()">⬅ Back</button>
+</section>
+<!-- ==========  Virtual Drill Section  ========== -->
+<section id="virtual-drills" style="display: none;">
+  <div class="container">
+    <h3 class="text-2xl font-bold mb-4 text-center">🚨 Virtual Emergency Drill</h3>
+
+    <div id="drill-card"
+         class="bg-white shadow-xl rounded-2xl p-6 max-w-xl mx-auto">
+
+      <h4 id="drill-title" class="text-xl font-bold mb-2"></h4>
+      <p id="drill-question" class="text-gray-700 mb-4"></p>
+
+      <!-- 20-second timer -->
+      <p class="mb-2 text-center">
+        ⏱️ Time left: <span id="timer" class="font-mono text-red-600 text-2xl">20</span> s
+      </p>
+
+      <!-- Choices -->
+      <div id="drill-choices" class="flex flex-col gap-3 mb-4"></div>
+
+      <!-- Feedback -->
+      <p id="drill-outcome" class="font-semibold text-center"></p>
+
+      <!-- Navigation -->
+      <div class="text-center mt-6">
+        <button class="btn btn-secondary" onclick="closeDrills()">⬅ Back to Hub</button>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="script.js" defer></script>
+
+
+<section id="public-space" class="w-full max-w-6xl hidden mx-auto mt-6">
+  <div class="flex justify-between items-center mb-4">
+  <h3 class="text-xl font-semibold text-center flex-1">Choose a Public Space Emergency</h3>
+  <button onclick="closeScenario()" class="ml-4 bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600">
+    ⬅ Back
+  </button>
+</div>
+
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
+    
+    <!-- 1) Earthquake Safety (Indian Animation) -->
+    <div class="bg-white shadow-md rounded-2xl p-4 hover:shadow-xl">
+      <h4 class="text-lg font-semibold mb-2">🌏 Earthquake Safety (Hindi Animation)</h4>
+      <div class="aspect-w-16 aspect-h-9 mb-2">
+        <iframe class="w-full h-full rounded-lg"
+          src="https://www.youtube.com/embed/1AWN0aCzs88"
+          title="AAPDA KA SAMNA - Earthquake Safety"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p class="text-gray-600">
+        An engaging Indian animated short that explains how to prepare and stay safe during earthquakes.
+      </p>
+    </div>
+
+    <!-- 2) Earthquake for Kids (Dr. Binocs) -->
+    <div class="bg-white shadow-md rounded-2xl p-4 hover:shadow-xl">
+      <h4 class="text-lg font-semibold mb-2">🌏 Earthquake Safety for Kids (Dr. Binocs)</h4>
+      <div class="aspect-w-16 aspect-h-9 mb-2">
+        <iframe class="w-full h-full rounded-lg"
+          src="https://www.youtube.com/embed/SrLCQs4ApIQ"
+          title="Dr. Binocs Show – Earthquake"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p class="text-gray-600">
+        Hindi animated explanation for children on what to do in case of an earthquake.
+      </p>
+    </div>
+
+    <!-- 3) Road Safety PSA -->
+    <div class="bg-white shadow-md rounded-2xl p-4 hover:shadow-xl">
+      <h4 class="text-lg font-semibold mb-2">🛣️ Road Safety Awareness (Indian PSU PSA)</h4>
+      <div class="aspect-w-16 aspect-h-9 mb-2">
+        <iframe class="w-full h-full rounded-lg"
+          src="https://www.youtube.com/embed/Kgvd7421Z3Q"
+          title="Road Safety Awareness Animation"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p class="text-gray-600">
+        A classic animated road safety campaign by Indian Oil Corporation.
+      </p>
+    </div>
+
+    <!-- 4) Youth Earthquake Animation -->
+    <div class="bg-white shadow-md rounded-2xl p-4 hover:shadow-xl">
+      <h4 class="text-lg font-semibold mb-2">🌏 Hindi Earthquake Drill</h4>
+      <div class="aspect-w-16 aspect-h-9 mb-2">
+        <iframe class="w-full h-full rounded-lg"
+          src="https://www.youtube.com/embed/BLEPakj1YTY?si=kKUb5LSzIF4BAl43"
+          title="Earthquake Safety Rules Funny Animation"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p class="text-gray-600">
+        A humorous yet instructive Hindi animation teaching earthquake safety rules.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+            </div>
+            <div class="progress-tracker">
+                <h3>🏆 Your Learning Progress</h3>
+                <p>Track your journey to becoming a Safety Hero!</p>
+                <div class="progress-stats">
+                    <div class="progress-stat">
+                        <div class="progress-number">75%</div>
+                        <div class="progress-label">Overall Progress</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-stat">
+                        <div class="progress-number">12</div>
+                        <div class="progress-label">Modules Completed</div>
+                    </div>
+                    <div class="progress-stat">
+                        <div class="progress-number">8</div>
+                        <div class="progress-label">Badges Earned</div>
+                    </div>
+                    <div class="progress-stat">
+                        <div class="progress-number">450</div>
+                        <div class="progress-label">Points Scored</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos" class="videos-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📺 Awareness Videos</h2>
+                <p class="section-description">Watch fun and educational videos to learn disaster safety! 🎬✨</p>
+            </div>
+            <div class="videos-grid">
+                <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=BLEPakj1YTY', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🏔️</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">8:45</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🏔️ How to Prepare for an Earthquake</h3>
+                        <p>San José Fire Department - Official Guide</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=qKLeQAuscBg', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🚨</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">12:30</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🚨 Earthquake Response Technology</h3>
+                        <p>LAFD - Experience and Technology for Preparedness</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="window.open('https://youtu.be/lb5bQDlCvtU?si=7M10A5jmBqbIxjoz', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🌊</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">15:20</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🌊 Preparedness against Floods</h3>
+                        <p>Emergency Response and Safety Tips</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="window.open('https://youtu.be/H-nxT76l9Jc?si=HS4uarohg8Uf4ak1', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🌪️</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">10:15</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🌪️ Preparedness against Cyclone</h3>
+                        <p>Real Storm Impact and Community Response</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=OipafrhCe00', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🌀</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">7:45</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🌀 Virginia's Hurricane Preparedness Plan 2024</h3>
+                        <p>State-Level Emergency Planning</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=BLEPakj1YTY', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🎒</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">7:20</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🎒 Emergency Kit Essentials</h3>
+                        <p>How to Build a Disaster Kit</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="window.open('https://youtu.be/84D0OpGHK5Y?si=nSAP4ISkUw4E-wHt', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🔥</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">4:15</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🔥 Fire Safety</h3>
+                        <p>Stop, Drop, Roll - Fire Safety Tips</p>
+                    </div>
+                </div>
+                <div class="video-card" onclick="window.open('https://youtu.be/N3Mjjx6eDGk?si=DvwKfMPC1owMseFA', '_blank')">
+                    <div class="video-thumbnail">
+                        <div class="video-icon">🩹</div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <div class="video-duration">8:15</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>🩹 Basic First Aid</h3>
+                        <p>Simple First Aid Techniques</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer/Contact Section -->
+    <footer id="contact" class="footer-section">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                   
+                <div class="footer-column">
+                    <h3>📧 Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-label">📧 Email</div>
+                            <div class="contact-value">safety@safetyfirst.edu</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label">📱 WhatsApp</div>
+                            <div class="contact-value">+91 8855027901</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label">🌐 Website</div>
+                            <div class="contact-value">www.safetyfirst.edu</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>🎓 About SafetyFirst</h3>
+                    <p>Making disaster preparedness fun and accessible for students worldwide through interactive learning experiences.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <svg class="footer-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span class="footer-brand-text">SafetyFirst</span>
+                </div>
+                <p>© 2025 SafetyFirst Education. Making disaster preparedness fun for students worldwide! 🌍✨</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+<!-- Disaster Highlights Ticker -->
+<div class="highlight-ticker">
+  <span class="highlight-label">⚡ Disaster Highlights:</span>
+  <div class="highlight-track">
+    <div id="highlight-items">
+      
+      <span class="highlight-item"
+            data-title="2025: Cloudburst Strikes Rudraprayag"
+            data-date="Aug 29, 2025"
+            data-desc="Cloudbursts in Uttarakhand's Rudraprayag and Chamoli districts left families trapped under debris; rescue operations are underway."
+            data-url="https://economictimes.indiatimes.com/news/india/uttarakhand-cloudburst-rudraprayag-chamoli-hit-by-cloudburst-rescue-operations-underway/articleshow/123576781.cms">
+        🗓️ 2025: Cloudburst Strikes Rudraprayag
+      </span>
+
+      <span class="highlight-item"
+            data-title="2025: Landslide Near Vaishno Devi Pilgrimage Route Kills 30+"
+            data-date="Aug 27, 2025"
+            data-desc="Heavy rains triggered a landslide near the Vaishno Devi shrine, killing at least 30 pilgrims and causing major disruption."
+            data-url="https://www.reuters.com/sustainability/climate-energy/indias-heavy-rains-cause-floods-kill-30-landslide-pilgrim-route-2025-08-27/">
+        🗓️ 2025: Landslide Near Vaishno Devi Pilgrimage Route Kills 30+
+      </span>
+
+      <span class="highlight-item"
+            data-title="2025: Flash Floods Devastate Kashmir"
+            data-date="Aug 27, 2025"
+            data-desc="Severe flash floods in Indian-controlled Kashmir killed dozens and displaced thousands; schools and pilgrimages halted."
+            data-url="https://apnews.com/article/7764601f6012c24c72f36d4088b56b39">
+        🗓️ 2025: Flash Floods Devastate Kashmir
+      </span>
+
+      <span class="highlight-item"
+            data-title="2025: Assam Floods"
+            data-date="Aug 15, 2025"
+            data-desc="Recurring floods in Assam displaced many and caused widespread infrastructural and agricultural damage."
+            data-url="https://www.reuters.com/business/environment/floods-landslides-indian-kashmir-kill-60-over-200-missing-2025-08-15/">
+        🗓️ 2025: Assam Floods
+      </span>
+
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Single Disaster Info Modal -->
+<div id="newsModal" class="modal">
+  <div class="modal-content">
+    <span id="closeModal" class="close-btn">✖</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDate"></p>
+    <p id="modalDesc"></p>
+    <a id="modalUrl" href="#" target="_blank">Read Full Article</a>
+  </div>
+</div>
+
+<style>
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+  }
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    color: red;
+  }
+</style>
+
+<script>
+function openModal(span) {
+  const modal = document.getElementById("newsModal");
+  document.getElementById("modalTitle").textContent = span.dataset.title;
+  document.getElementById("modalDate").textContent = span.dataset.date;
+  document.getElementById("modalDesc").textContent = span.dataset.desc;
+  document.getElementById("modalUrl").href = span.dataset.url;
+
+  modal.style.display = "flex";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("newsModal");
+  const closeBtn = document.getElementById("closeModal");
+
+  // attach click handlers to all highlight items
+  document.querySelectorAll(".highlight-item").forEach(item => {
+    item.addEventListener("click", () => openModal(item));
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+});
+</script>
+
+
+<!-- Firebase SDKs (ADD THIS BEFORE script.js) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<script>
+  // copy the same config you used in login.html
+  var firebaseConfig = {
+    apiKey: "AIzaSyAJO8evM1zTHiKk9LgQoD9JQ0yCJzHcFB4",
+    authDomain: "disaster-management-1f766.firebaseapp.com",
+    projectId: "disaster-management-1f766",
+    storageBucket: "disaster-management-1f766.firebasestorage.app",
+    messagingSenderId: "570748616582",
+    appId: "1:570748616582:web:f3cb38a280a7a3c4fbf607",
+    measurementId: "G-T2M5PQVHNY"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+  // make auth/db available globally so other scripts can use them
+  window.auth = firebase.auth();
+  window.db = firebase.firestore();
+
+
+</script>

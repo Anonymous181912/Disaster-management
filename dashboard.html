@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>SafetyFirst – Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body.dashboard .highlight-ticker { display:none !important; }
+  </style>
+</head>
+<body class="dashboard bg-gray-50 font-sans">
+  <nav class="bg-white shadow px-4 py-3 flex items-center justify-between">
+    <span class="font-bold text-xl text-blue-600">SafetyFirst Admin</span>
+    <a href="index1.html" class="text-sm text-blue-600 hover:underline">← Back to Site</a>
+  </nav>
+
+  <main class="max-w-7xl mx-auto p-4 grid gap-6">
+    <!-- Stats Section -->
+    <section class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div class="bg-white p-4 rounded shadow"><h3 class="text-sm text-gray-500">Total Students</h3><p id="totalStudents" class="text-2xl font-bold">0</p></div>
+      <div class="bg-white p-4 rounded shadow"><h3 class="text-sm text-gray-500">Avg Preparedness</h3><p id="avgScore" class="text-2xl font-bold">0%</p></div>
+      <div class="bg-white p-4 rounded shadow"><h3 class="text-sm text-gray-500">Drills This Month</h3><p id="drillCount" class="text-2xl font-bold">0</p></div>
+      <div class="bg-white p-4 rounded shadow"><h3 class="text-sm text-gray-500">Lowest Class</h3><p id="lowestClass" class="text-2xl font-bold">-</p></div>
+    </section>
+
+    <!-- Tables -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="bg-white rounded shadow overflow-x-auto">
+        <h2 class="p-4 font-bold text-lg">Preparedness Scores</h2>
+        <table class="w-full text-sm">
+          <thead class="bg-gray-100"><tr><th class="p-2 text-left">Name</th><th class="p-2">Class</th><th class="p-2">Score</th><th class="p-2">Last Drill</th></tr></thead>
+          <tbody id="scoreTable"></tbody>
+        </table>
+      </div>
+
+      <div class="bg-white rounded shadow overflow-x-auto">
+        <h2 class="p-4 font-bold text-lg">Drill Participation</h2>
+        <table class="w-full text-sm">
+          <thead class="bg-gray-100"><tr><th class="p-2 text-left">Class</th><th class="p-2">Students</th><th class="p-2">Attended</th><th class="p-2">%</th></tr></thead>
+          <tbody id="drillTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Chart -->
+    <section class="bg-white rounded shadow p-4">
+      <h2 class="font-bold text-lg mb-2">Class Readiness Overview</h2>
+      <canvas id="readinessChart" height="120"></canvas>
+    </section>
+
+    
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Firebase SDK (same as index.html) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <script>
+    // ✅ Firebase config (use the SAME as index.html)
+    const firebaseConfig = {
+      apiKey: "AIzaSyAJO8evM1zTHiKk9LgQoD9JQ0yCJzHcFB4",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "disaster-management-1f766",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // ✅ Live Logs Listener
+    db.collection("logs").orderBy("timestamp","desc").limit(50)
+      .onSnapshot(snap=>{
+        const ul=document.getElementById("logs-list");
+        ul.innerHTML="";
+        snap.forEach(doc=>{
+          const d=doc.data();
+          const time = d.timestamp ? d.timestamp.toDate().toLocaleString() : "⏳ Pending";
+          const li=document.createElement("li");
+          li.textContent=`${d.action.toUpperCase()} - ${d.email} - ${time}`;
+          ul.appendChild(li);
+        });
+      });
+
+    /* ---- Dummy Admin Data (same as before) ---- */
+    const adminData = {
+      students: [
+        { name: "Aarav Sharma", class: "8-A", score: 92, lastDrill: "2025-09-01" },
+        { name: "Diya Patel", class: "7-B", score: 78, lastDrill: "2025-08-28" },
+        { name: "Kabir Singh", class: "9-A", score: 65, lastDrill: "2025-08-30" },
+        { name: "Ananya Gupta", class: "8-A", score: 88, lastDrill: "2025-09-01" },
+        { name: "Rohan Mehta", class: "7-B", score: 45, lastDrill: "2025-08-25" }
+      ],
+      drills: [
+        { class: "8-A", total: 42, attended: 39 },
+        { class: "7-B", total: 38, attended: 30 },
+        { class: "9-A", total: 40, attended: 35 }
+      ]
+    };
+
+    function render() {
+      const students = adminData.students;
+      const drills   = adminData.drills;
+      document.getElementById('totalStudents').textContent = students.length;
+      document.getElementById('avgScore').textContent = Math.round(students.reduce((s,st)=>s+st.score,0)/students.length) + '%';
+      document.getElementById('drillCount').textContent = drills.reduce((s,d)=>s+d.attended,0);
+      document.getElementById('lowestClass').textContent = drills.reduce((min,d)=>d.attended/d.total < min.ratio ? {ratio:d.attended/d.total,cls:d.class} : min,{ratio:1}).cls;
+
+      document.getElementById('scoreTable').innerHTML = students.map(s=>`<tr><td class="p-2">${s.name}</td><td class="p-2">${s.class}</td><td class="p-2">${s.score}%</td><td class="p-2">${s.lastDrill}</td></tr>`).join('');
+      document.getElementById('drillTable').innerHTML = drills.map(d=>`<tr><td class="p-2">${d.class}</td><td class="p-2">${d.total}</td><td class="p-2">${d.attended}</td><td class="p-2">${Math.round(d.attended/d.total*100)}%</td></tr>`).join('');
+
+      new Chart(document.getElementById('readinessChart'), {
+        type:'bar',
+        data:{labels:drills.map(d=>d.class),datasets:[{label:'Readiness %',data:drills.map(d=>Math.round(d.attended/d.total*100)),backgroundColor:'#3b82f6'}]},
+        options:{scales:{y:{beginAtZero:true,max:100}}}
+      });
+    }
+    document.addEventListener('DOMContentLoaded', render);
+  </script>
+</body>
+</html>
