@@ -1210,3 +1210,100 @@ window.logout = logout;
             const index = Math.round(degrees / 45) % 8;
             return directions[index];
         }
+
+
+        // --- NEW TRANSLATION LOGIC ---
+
+// Function to apply translations based on the selected language
+const applyTranslations = (lang) => {
+  const elements = document.querySelectorAll("[data-translate-key]");
+  elements.forEach((element) => {
+    const key = element.getAttribute("data-translate-key");
+    if (languageContent[lang] && languageContent[lang][key]) {
+      element.innerHTML = languageContent[lang][key];
+    }
+  });
+};
+
+// Function to change language, save preference, and apply translations
+const changeLanguage = () => {
+  const selectedLang = document.getElementById("language-selector").value;
+  localStorage.setItem("selectedLanguage", selectedLang); // Save preference
+  applyTranslations(selectedLang);
+};
+
+// --- END OF NEW TRANSLATION LOGIC ---
+
+
+// --- EXISTING AND MODIFIED LOGIC ---
+
+// Smooth scrolling for navigation links
+document.addEventListener("DOMContentLoaded", () => {
+  
+  // --- TRANSLATION INITIALIZATION ---
+  const savedLang = localStorage.getItem("selectedLanguage") || "en"; // Get saved lang or default to English
+  document.getElementById("language-selector").value = savedLang;
+  applyTranslations(savedLang); // Apply translation on page load
+  // --- END TRANSLATION INITIALIZATION ---
+
+  const navLinks = document.querySelectorAll(".nav-link");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
+      if (targetId && targetId.startsWith("#")) {
+        e.preventDefault();
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+    });
+  });
+
+  // Add scroll effect to navbar
+  window.addEventListener("scroll", () => {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+      navbar.style.background = "rgba(255, 255, 255, 0.95)";
+    } else {
+      navbar.style.background = "rgba(255, 255, 255, 0.9)";
+    }
+  });
+});
+
+function toggleHelpline() {
+  document.getElementById('helpline-popup').classList.toggle('hidden');
+}
+
+// Firebase auth guard & logout
+if (window.auth) {
+    auth.onAuthStateChanged((user) => {
+        if (!user) {
+            // If no user, redirect to login page.
+            // Make sure you have a login.html page.
+            window.location.replace("login.html");
+        } else {
+            // User is logged in. You can optionally show/hide elements here.
+            console.log("User is logged in:", user.email);
+            const isAdmin = localStorage.getItem("isAdmin") === "true";
+            const adminBtn = document.getElementById("adminBtn");
+            if(adminBtn) {
+                adminBtn.style.display = isAdmin ? 'inline-block' : 'none';
+            }
+        }
+    });
+}
+
+function openDashboard() {
+  const isAdmin = localStorage.getItem("isAdmin") === "true";
+  if (isAdmin) {
+    window.location.href = "dashboard.html";
+  } else {
+    alert("❌ You are not authorized to access the Admin Dashboard.");
+  }
+}
+
+

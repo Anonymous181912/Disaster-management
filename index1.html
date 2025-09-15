@@ -208,6 +208,7 @@ function toggleHelpline() {
 }
 </script>
 </body>
+
 </body>
 </html>
 
@@ -256,7 +257,17 @@ function toggleHelpline() {
                <button class="nav-link" id="adminBtn" onclick="openDashboard()">📊 Admin</button>
 
 
+               <select id="languageSelector" onchange="changeLanguage(this.value)" 
+  class="ml-4 px-2 py-1 border rounded text-sm bg-white text-gray-800">
+  <option value="en">English</option>
+  <option value="hi">हिंदी</option>
+  <option value="mr">मराठी</option>
+  <option value="kn">ಕನ್ನಡ</option>
+  <option value="pa">ਪੰਜਾਬੀ</option>
+</select>
+
                 <a href="login.html" onclick="localStorage.clear(); firebase.auth().signOut();">logout</a>
+                
     </div>
         </div>
     </nav>
@@ -670,6 +681,7 @@ function toggleHelpline() {
     </div>
   </div>
 </section>
+
 <script src="script.js" defer></script>
 
 
