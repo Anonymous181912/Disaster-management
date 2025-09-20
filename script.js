@@ -1307,3 +1307,9 @@ function openDashboard() {
 }
 
 
+/* ----------  exit quiz without saving  ---------- */
+function exitQuiz() {
+  closeQuiz();                       // hides modal & resets state
+  location.hash = '#quiz';           // smooth-scroll back to the section
+}
+

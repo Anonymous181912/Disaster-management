@@ -1635,3 +1635,8 @@ body.dashboard #readinessChart {
   border-radius: 4px;
   border: 1px solid #ccc;
 }
+
+#map {
+  height: 400px; /* or any value */
+  width: 100%;
+}
