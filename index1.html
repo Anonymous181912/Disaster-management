@@ -462,7 +462,7 @@ function toggleHelpline() {
     <!-- glassy map card -->
     <div class="max-w-6xl mx-auto bg-white/80 backdrop-blur rounded-3xl shadow-xl p-2 md:p-4 border border-white/60">
       <div class="relative rounded-2xl overflow-hidden ring-4 ring-indigo-100">
-        <iframe src="map.html" width="100%" height="480" frameborder="0" loading="lazy" title="India Disaster Risk Map" class="block"></iframe>
+        <iframe src="kmap.html" width="100%" height="480" frameborder="0" loading="lazy" title="India Disaster Risk Map" class="block"></iframe>
         <!-- corner badges -->
         <div class="absolute top-3 right-3 flex flex-col gap-2">
         </div>
@@ -508,7 +508,7 @@ function toggleHelpline() {
                         </div>
                         <div class="stat">
                             <div class="stat-number">🏆</div>
-                            <div class="stat-label">Certificate</div>
+                            <div class="stat-label">Credits</div>
                         </div>
                     </div>
                     <button class="btn btn-secondary btn-large" onclick="startQuiz()">
@@ -690,6 +690,7 @@ function toggleHelpline() {
   <!-- Back button -->
   <button class="btn btn-secondary mt-4" onclick="closeSafetySkills()">⬅ Back</button>
 </section>
+
 <!-- ==========  Virtual Drill Section  ========== -->
 <section id="virtual-drills" style="display: none;">
   <div class="container">
@@ -718,6 +719,7 @@ function toggleHelpline() {
       </div>
     </div>
   </div>
+  
 </section>
 
 <script src="script.js" defer></script>
@@ -730,6 +732,8 @@ function toggleHelpline() {
     ⬅ Back
   </button>
 </div>
+
+
 
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
@@ -911,7 +915,47 @@ function toggleHelpline() {
                 </div>
             </div>
         </div>
+        
     </section>
+  <!-- ===========================================================
+     HORIZONTAL “Learning Progress” BAR  (matches screenshot)
+     =========================================================== -->
+<section class="hz-progress-band">
+  <div class="hz-left">
+    <!-- icon + heading -->
+    <span class="hz-icon">📈</span>
+    <div>
+      <h3 class="hz-title">Your Learning Progress</h3>
+      <p class="hz-sub">Track your journey to becoming a Safety Hero!</p>
+    </div>
+  </div>
+
+  <!-- 75 % micro-ring -->
+  <div class="hz-ring-box">
+    <svg width="52" height="52">
+      <circle class="hz-track" cx="26" cy="26" r="22"/>
+      <circle class="hz-bar"  cx="26" cy="26" r="22"
+              stroke-dasharray="138.23" stroke-dashoffset="34.56"/>
+    </svg>
+    <span class="hz-percent">75%</span>
+  </div>
+
+  <!-- numbers -->
+  <div class="hz-stats">
+    <div class="hz-item">
+      <div class="hz-num">12</div>
+      <div class="hz-label">Modules<br>Completed</div>
+    </div>
+    <div class="hz-item">
+      <div class="hz-num">4</div>
+      <div class="hz-label">Badges<br>Earned</div>
+    </div>
+    <div class="hz-item">
+      <div class="hz-num">450</div>
+      <div class="hz-label">Points<br>Scored</div>
+    </div>
+  </div>
+</section>
 
     <!-- Footer/Contact Section -->
     <footer id="contact" class="footer-section">
