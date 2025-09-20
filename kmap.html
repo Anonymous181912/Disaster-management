@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>India Risk Map – Recent Hot-Spots</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <style>
+    #map { height: 420px; width: 100%; }
+  </style>
+</head>
+<body>
+  <h2>🌍 India Disaster-Risk Map – Recent Hot-Spots (2024-25)</h2>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([20.59, 78.96], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    /* ----  RECENT + CLASSIC high-impact zones  ---- */
+    /* ----  2025  HIGH-IMPACT ZONES  ---- */
+const regions = [
+  /*  EXTREME  */
+  {n:"2025 Rudraprayag Cloudburst",lat:30.3,lon:78.9,r:"extreme",t:"Landslide",rad:60},      // Aug 2025 cloudburst
+  {n:"2025 Vaishno Devi Landslide",lat:33.0,lon:75.0,r:"extreme",t:"Landslide",rad:55},      // Aug 2025 pilgrim route
+  {n:"2025 Kashmir Snow-Avalanche",lat:34.1,lon:74.8,r:"extreme",t:"Avalanche",rad:50},       // Jan 2025 Gulmarg
+  {n:"2025 Assam Barpeta Flood",lat:26.3,lon:91.0,r:"extreme",t:"Flood",rad:80},             // May 2025 Brahmaputra spike
+  {n:"2025 Cyclone Remal",lat:22.4,lon:88.9,r:"extreme",t:"Cyclone",rad:85},                // May 2025 Bengal landfall
+
+  /*  HIGH  */
+  {n:"2025 Delhi Heat-Wave Core",lat:28.6,lon:77.2,r:"high",t:"Heat-wave",rad:50},           // 49 °C May 2025
+  {n:"2025 Mumbai Urban Flood",lat:19.0,lon:72.8,r:"high",t:"Urban-Flood",rad:45},           // June 2025 cloud-burst
+  {n:"2025 Wayanad Landslide",lat:11.7,lon:76.0,r:"high",t:"Landslide",rad:40},              // Jul 2025 Western-Ghats
+  {n:"2025 Kota Heat-Wave",lat:25.2,lon:75.8,r:"high",t:"Heat-wave",rad:45},                 // 48 °C May 2025
+  {n:"2025 Sikkim Glacial Lake",lat:27.3,lon:88.6,r:"high",t:"Flood",rad:55},                 // Jun 2025 GLOF warning
+
+  /*  MODERATE  */
+  {n:"2025 Bengaluru Thunderstorm",lat:12.9,lon:77.6,r:"moderate",t:"Thunderstorm",rad:30},  // May 2025 city damage
+  {n:"2025 Chennai Water-Logging",lat:13.1,lon:80.3,r:"moderate",t:"Urban-Flood",rad:35},    // Dec 2024 → Jan 2025
+  {n:"2025 NCR Dust-Storm",lat:28.9,lon:77.1,r:"moderate",t:"Dust-Storm",rad:30},             // Apr 2025 wind event
+
+  /*  LOW  (chronic but stable)  */
+  {n:"Western Ghats",lat:15.3,lon:74.0,r:"low",t:"Landslide",rad:35},
+  {n:"Tamil-Nadu Coast",lat:11.0,lon:79.5,r:"low",t:"Cyclone",rad:30}
+];
+
+    const col = r=> r==="extreme"?"#dc2626":r==="high"?"#ea580c":r==="moderate"?"#facc15":"#16a34a";
+    regions.forEach(r=>{
+      L.circle([r.lat,r.lon],{
+        color:col(r.r),
+        fillColor:col(r.r),
+        fillOpacity:0.32,
+        radius:r.rad*1000,   // km → metres
+        stroke:false
+      }).bindPopup(`<b>${r.n}</b><br>${r.t} – <b>${r.r.toUpperCase()}</b>`).addTo(map);
+    });
+  </script>
+</body>
+</html>
+
