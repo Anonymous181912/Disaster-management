@@ -1214,23 +1214,7 @@ window.logout = logout;
 
         // --- NEW TRANSLATION LOGIC ---
 
-// Function to apply translations based on the selected language
-const applyTranslations = (lang) => {
-  const elements = document.querySelectorAll("[data-translate-key]");
-  elements.forEach((element) => {
-    const key = element.getAttribute("data-translate-key");
-    if (languageContent[lang] && languageContent[lang][key]) {
-      element.innerHTML = languageContent[lang][key];
-    }
-  });
-};
 
-// Function to change language, save preference, and apply translations
-const changeLanguage = () => {
-  const selectedLang = document.getElementById("language-selector").value;
-  localStorage.setItem("selectedLanguage", selectedLang); // Save preference
-  applyTranslations(selectedLang);
-};
 
 // --- END OF NEW TRANSLATION LOGIC ---
 
@@ -1316,3 +1300,95 @@ function exitQuiz() {
 // inside login.html
 if (user) window.location.replace("app.html");
 
+// --- NEW TRANSLATION LOGIC ---
+
+// Object to hold all language data
+let languageContent = {};
+
+// Function to fetch a language file
+async function fetchLanguage(lang) {
+  if (!languageContent[lang]) {
+    try {
+      const response = await fetch(`lang/${lang}.json`);
+      if (!response.ok) {
+        throw new Error(`Could not load ${lang}.json`);
+      }
+      languageContent[lang] = await response.json();
+    } catch (error) {
+      console.error(error);
+      // Fallback to English if the language file is not found
+      if (lang !== 'en') {
+        await fetchLanguage('en');
+      }
+      return languageContent['en'];
+    }
+  }
+  return languageContent[lang];
+}
+
+// Function to apply translations based on the selected language
+const applyTranslations = async (lang) => {
+  const langData = await fetchLanguage(lang);
+  if (!langData) return;
+
+  const elements = document.querySelectorAll("[data-translate-key]");
+  elements.forEach((element) => {
+    const key = element.getAttribute("data-translate-key");
+    if (langData[key]) {
+      element.innerHTML = langData[key];
+    }
+  });
+};
+
+// Function to change language, save preference, and apply translations
+const changeLanguage = () => {
+  const selectedLang = document.getElementById("lang-switch").value;
+  localStorage.setItem("selectedLanguage", selectedLang); // Save preference
+  applyTranslations(selectedLang);
+};
+
+// --- END OF NEW TRANSLATION LOGIC ---
+
+
+// --- EXISTING AND MODIFIED LOGIC ---
+
+// Smooth scrolling for navigation links
+document.addEventListener("DOMContentLoaded", () => {
+  
+  // --- TRANSLATION INITIALIZATION ---
+  const savedLang = localStorage.getItem("selectedLanguage") || "en"; // Get saved lang or default to English
+  const langSelector = document.getElementById("lang-switch");
+  if (langSelector) {
+    langSelector.value = savedLang;
+    langSelector.addEventListener('change', changeLanguage);
+  }
+  applyTranslations(savedLang); // Apply translation on page load
+  // --- END TRANSLATION INITIALIZATION ---
+
+  const navLinks = document.querySelectorAll(".nav-link");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
+      if (targetId && targetId.startsWith("#")) {
+        e.preventDefault();
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+    });
+  });
+
+  // Add scroll effect to navbar
+  window.addEventListener("scroll", () => {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+      navbar.style.background = "rgba(255, 255, 255, 0.95)";
+    } else {
+      navbar.style.background = "rgba(255, 255, 255, 0.9)";
+    }
+  });
+});
