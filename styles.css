@@ -67,7 +67,7 @@ body {
   width: 32px;
   height: 32px;
   color: var(--primary);
-  animation: float 3s ease-in-out infinite;
+  animation: float 0s ease-in-out infinite;
 }
 
 .brand-text {
@@ -114,30 +114,13 @@ body {
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1), rgba(245, 158, 11, 0.1));
 }
 
-.hero-bg::before,
-.hero-bg::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  animation: pulse 4s ease-in-out infinite;
-}
-
-.hero-bg::before {
-  top: 80px;
-  left: 40px;
-  width: 300px;
-  height: 300px;
-  background: rgba(16, 185, 129, 0.3);
-}
-
 .hero-bg::after {
   bottom: 80px;
   right: 40px;
   width: 400px;
   height: 400px;
-  background: rgba(59, 130, 246, 0.3);
-  animation-delay: 1s;
+  background: rgba(20, 20, 21, 0.3);
+  animation-delay: 0.1s;
 }
 
 .hero-container {
@@ -1684,3 +1667,151 @@ body.dashboard #readinessChart {
   .hz-left{ width: 100%; justify-content: center; }
   .hz-stats{ width: 100%; justify-content: space-around; margin-top: 12px; }
 }
+
+.hero-section{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+
+.hero-text-plate {
+  position: relative;
+  display: inline-block;
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.gradient-text{
+  display:inline-block;
+  text-shadow:0 2px 3px rgba(0,0,0,.12);
+  filter:drop-shadow(0 3px 5px rgba(0,0,0,.1));
+}
+
+/* ---------- Night-Drill Dark Mode ---------- */
+:root{
+  --day-bg:#ffffff;
+  --day-text:#1f2937;
+  --night-bg:#0f172a;
+  --night-text:#e2e8f0;
+}
+
+html.dark body{
+  background:var(--night-bg) !important;
+  color:var(--night-text) !important;
+}
+
+/* cards float above dark */
+html.dark .main-card,
+html.dark .learning-card,
+html.dark .quiz-card,
+html.dark .video-card,
+html.dark .flip-card-front,
+html.dark .flip-card-back,
+html.dark .tip-item,
+html.dark .emergency-card,
+html.dark .contact-item{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 8px 32px rgba(0,0,0,.4);
+}
+
+/* keep safety colours visible */
+html.dark .earthquake{ background:linear-gradient(135deg, #f59e0b, #dc2626); }
+html.dark .flood{ background:linear-gradient(135deg, #3b82f6, #2563eb); }
+html.dark .fire{ background:linear-gradient(135deg, #f97316, #ea580c); }
+html.dark .cyclone{ background:linear-gradient(135deg, #6b7280, #4b5563); }
+
+/* subtle yellow accent for buttons */
+html.dark .btn-primary{ background:#f59e0b; box-shadow:0 4px 20px rgba(245,158,11,.35); }
+html.dark .btn-secondary{ background:#10b981; box-shadow:0 4px 20px rgba(16,185,129,.35); }
+
+/* night-toggle button */
+.night-btn{
+  background:none; border:none; font-size:22px; cursor:pointer;
+  padding:6px 10px; border-radius:50%; transition:transform .2s;
+}
+.night-btn:hover{ transform:scale(1.15); }
+
+/* ---------- dark-mode the stubborn sections ---------- */
+html.dark #risk-report,
+html.dark .disaster-types-section,
+html.dark .dos-donts-section,
+html.dark .videos-section,
+html.dark .learning-section,
+html.dark .quiz-section,
+html.dark .footer-section{
+  background:transparent;               /* let body colour show */
+}
+
+/* glass cards stay readable */
+html.dark #risk-report-container,
+html.dark .learning-card,
+html.dark .quiz-card,
+html.dark .video-card,
+html.dark .flip-card-front,
+html.dark .flip-card-back,
+html.dark .tip-item,
+html.dark .contact-item{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 8px 32px rgba(0,0,0,.4);
+}
+
+/* map section indigo tint */
+html.dark #risk-map{
+  background:linear-gradient(135deg, rgba(30,41,59,.9) 0%, rgba(15,23,42,.9) 100%);
+}
+
+/* white text inside cards */
+html.dark .section-title,
+html.dark .section-description,
+html.dark h3,
+html.dark p,
+html.dark li{
+  color:#e2e8f0;
+}
+
+/* buttons stay yellow/green but visible */
+html.dark .btn-primary{ background:#f59e0b; }
+html.dark .btn-secondary{ background:#10b981; }
+
+
+
+
+/* BLACK text in dark mode for nav + ticker */
+html.dark .nav-container *,
+html.dark .highlight-track *{
+  color:#111827 !important;        /* Tailwind gray-900 = pure black */
+  fill:#111827 !important;         /* SVG icons */
+}
+
+/*  Quiz questions → pure black  */
+html.dark #question-text,
+html.dark .option-button{
+  color:#000000 !important;
+  background:transparent !important;
+}
+
+/* ----------  DARK-MODE : force the whole progress band black  ---------- */
+html.dark .hz-progress-band {
+  background: #000000;          /* band card → black */
+  border-color: #111827;        /* subtle border */
+}
+
+/* ring track */
+html.dark .hz-track {
+  stroke: #000000;              /* make the empty ring black */
+}
+
+/* numbers & labels */
+html.dark .hz-title,
+html.dark .hz-sub,
+html.dark .hz-percent,
+html.dark .hz-num,
+html.dark .hz-label {
+  color: #ffffff !important;    /* pure white on black */
+}
+
+/* icon */
+html.dark .hz-icon {
+  filter: brightness(0) invert(1);   /* white icon */
+}
+

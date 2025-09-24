@@ -1313,3 +1313,6 @@ function exitQuiz() {
   location.hash = '#quiz';           // smooth-scroll back to the section
 }
 
+// inside login.html
+if (user) window.location.replace("app.html");
+

@@ -139,6 +139,7 @@
   </style>
 </head>
 <body>
+  
   <!-- ✅ AI Chatbot -->
   <div id="chatbot">
     <div class="chatbot-header">🤖 AI Chatbot</div>
@@ -146,6 +147,8 @@
       <div class="bot-message">Hello! 👋 Ask me anything about safety 🚀</div>
     </div>
     <div class="chat-input-container">
+   <!-- inside .chat-input-container -->
+
       <input type="text" id="chat-input" placeholder="Ask me anything..." />
       <button onclick="sendMessage()">Send</button>
     </div>
@@ -255,18 +258,36 @@ function toggleHelpline() {
                 <a href="#videos" class="nav-link">📺 Videos</a>
                 <a href="#contact" class="nav-link">📧 Contact</a>
                <button class="nav-link" id="adminBtn" onclick="openDashboard()">📊 Admin</button>
-
-
-                <a href="login.html" onclick="localStorage.clear(); firebase.auth().signOut();">logout</a>
+              <!-- paste INSIDE <div class="nav-links">  (line ~80) -->
+<select id="lang-switch" class="nav-link" style="background:#fff; border:1px solid #ccc; border-radius:4px; padding:4px 8px; font-size:14px;">
+  <option value="en">English</option>
+  <option value="hi">हिन्दी</option>
+  <option value="mr">मराठी</option>
+  <option value="pa">ਪੰਜਾਬੀ</option>
+  <option value="kn">ಕನ್ನಡ</option>
+  <option value="ta">தமிழ்</option>
+</select>
+               <button id="nightToggle" class="night-btn">🌙</button>
+             <a href="login.html" onclick="localStorage.clear(); firebase.auth().signOut();">logout</a>
                 
     </div>
         </div>
     </nav>
-
+<script>
+    const btn = document.getElementById('nightToggle');
+    btn.onclick = () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('nightDrill', document.documentElement.classList.contains('dark'));
+    };
+    if (localStorage.getItem('nightDrill') === 'true') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
   
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
+      
         <div class="hero-bg"></div>
         <div class="hero-container">
             <div class="hero-content">
@@ -274,7 +295,7 @@ function toggleHelpline() {
                     <span>✨ 🎓 For Students Like You!</span>
                 </div>
                 <h1 class="hero-title">
-                    <span class="text-primary">Be Ready,</span><br>
+                    <span class="gradient-text">Be Ready,</span><br>
                     <span class="gradient-text">Stay Safe!</span>
                 </h1>
                 <p class="hero-description">

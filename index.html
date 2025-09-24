@@ -274,7 +274,11 @@
         console.error("Login Error:", error);
       }
     }
+    // FORCE LOGIN FIRST
+auth.onAuthStateChanged(user => {
+  if (!user) return; // stay on page (it's the login form)
+  // user exists → continue normally
+});
   </script>
 </body>
 </html>
-
