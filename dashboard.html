@@ -11,33 +11,44 @@
 </head>
 <body class="dashboard bg-gray-50 font-sans">
   <nav class="bg-white shadow px-4 py-3 flex items-center justify-between">
-    <span class="font-bold text-xl text-blue-600">SafetyFirst Admin</span>
-    <a href="index1.html" class="text-sm text-blue-600 hover:underline">← Back to Site</a>
+    <span class="font-bold text-xl text-blue-600" data-translate-key="adminTitle">SafetyFirst Admin</span>
+    <div>
+      <select id="lang-switch" class="nav-link" style="background:#fff; border:1px solid #ccc; border-radius:4px; padding:4px 8px; font-size:14px;">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="mr">मराठी</option>
+        <option value="pa">ਪੰਜਾਬੀ</option>
+        <option value="kn">ಕನ್ನಡ</option>
+        <option value="ta">தமிழ்</option>
+        <option value="te">తెలుగు</option>
+      </select>
+      <a href="index1.html" class="text-sm text-blue-600 hover:underline" data-translate-key="backToSite">← Back to Site</a>
+    </div>
   </nav>
 
   <main class="max-w-7xl mx-auto p-4 grid gap-6">
     <!-- Stats Section -->
     <section class="grid grid-cols-1 md:grid-cols-4 gap-4">
-      <div class="bg-white p-4 rounded shadow"><h3 class="text-sm text-gray-500">Total Students</h3><p id="totalStudents" class="text-2xl font-bold">0</p></div>
-      <div class="bg-white p-4 rounded shadow"><h3 class="text-sm text-gray-500">Avg Preparedness</h3><p id="avgScore" class="text-2xl font-bold">0%</p></div>
-      <div class="bg-white p-4 rounded shadow"><h3 class="text-sm text-gray-500">Drills This Month</h3><p id="drillCount" class="text-2xl font-bold">0</p></div>
-      <div class="bg-white p-4 rounded shadow"><h3 class="text-sm text-gray-500">Lowest Class</h3><p id="lowestClass" class="text-2xl font-bold">-</p></div>
+      <div class="bg-white p-4 rounded shadow"><h3 class="text-sm text-gray-500" data-translate-key="totalStudents">Total Students</h3><p id="totalStudents" class="text-2xl font-bold">0</p></div>
+      <div class="bg-white p-4 rounded shadow"><h3 class="text-sm text-gray-500" data-translate-key="avgPreparedness">Avg Preparedness</h3><p id="avgScore" class="text-2xl font-bold">0%</p></div>
+      <div class="bg-white p-4 rounded shadow"><h3 class="text-sm text-gray-500" data-translate-key="drillsThisMonth">Drills This Month</h3><p id="drillCount" class="text-2xl font-bold">0</p></div>
+      <div class="bg-white p-4 rounded shadow"><h3 class="text-sm text-gray-500" data-translate-key="lowestClass">Lowest Class</h3><p id="lowestClass" class="text-2xl font-bold">-</p></div>
     </section>
 
     <!-- Tables -->
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
       <div class="bg-white rounded shadow overflow-x-auto">
-        <h2 class="p-4 font-bold text-lg">Preparedness Scores</h2>
+        <h2 class="p-4 font-bold text-lg" data-translate-key="preparednessScores">Preparedness Scores</h2>
         <table class="w-full text-sm">
-          <thead class="bg-gray-100"><tr><th class="p-2 text-left">Name</th><th class="p-2">Class</th><th class="p-2">Score</th><th class="p-2">Last Drill</th></tr></thead>
+          <thead class="bg-gray-100"><tr><th class="p-2 text-left" data-translate-key="name">Name</th><th class="p-2" data-translate-key="class">Class</th><th class="p-2" data-translate-key="score">Score</th><th class="p-2" data-translate-key="lastDrill">Last Drill</th></tr></thead>
           <tbody id="scoreTable"></tbody>
         </table>
       </div>
 
       <div class="bg-white rounded shadow overflow-x-auto">
-        <h2 class="p-4 font-bold text-lg">Drill Participation</h2>
+        <h2 class="p-4 font-bold text-lg" data-translate-key="drillParticipation">Drill Participation</h2>
         <table class="w-full text-sm">
-          <thead class="bg-gray-100"><tr><th class="p-2 text-left">Class</th><th class="p-2">Students</th><th class="p-2">Attended</th><th class="p-2">%</th></tr></thead>
+          <thead class="bg-gray-100"><tr><th class="p-2 text-left" data-translate-key="class">Class</th><th class="p-2" data-translate-key="students">Students</th><th class="p-2" data-translate-key="attended">Attended</th><th class="p-2">%</th></tr></thead>
           <tbody id="drillTable"></tbody>
         </table>
       </div>
@@ -45,7 +56,7 @@
 
     <!-- Chart -->
     <section class="bg-white rounded shadow p-4">
-      <h2 class="font-bold text-lg mb-2">Class Readiness Overview</h2>
+      <h2 class="font-bold text-lg mb-2" data-translate-key="classReadinessOverview">Class Readiness Overview</h2>
       <canvas id="readinessChart" height="120"></canvas>
     </section>
 
@@ -53,6 +64,65 @@
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Translation Script -->
+  <script>
+    // Object to hold all language data
+    let languageContent = {};
+
+    // Function to fetch a language file
+    async function fetchLanguage(lang) {
+      if (!languageContent[lang]) {
+        try {
+          const response = await fetch(`lang/${lang}.json`);
+          if (!response.ok) {
+            throw new Error(`Could not load ${lang}.json`);
+          }
+          languageContent[lang] = await response.json();
+        } catch (error) {
+          console.error(error);
+          // Fallback to English if the language file is not found
+          if (lang !== 'en') {
+            await fetchLanguage('en');
+          }
+          return languageContent['en'];
+        }
+      }
+      return languageContent[lang];
+    }
+
+    // Function to apply translations based on the selected language
+    const applyTranslations = async (lang) => {
+      const langData = await fetchLanguage(lang);
+      if (!langData) return;
+
+      const elements = document.querySelectorAll("[data-translate-key]");
+      elements.forEach((element) => {
+        const key = element.getAttribute("data-translate-key");
+        if (langData[key]) {
+          element.innerHTML = langData[key];
+        }
+      });
+    };
+
+    // Function to change language, save preference, and apply translations
+    const changeLanguage = () => {
+      const selectedLang = document.getElementById("lang-switch").value;
+      localStorage.setItem("selectedLanguage", selectedLang); // Save preference
+      applyTranslations(selectedLang);
+    };
+
+    // Initialize translations on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedLang = localStorage.getItem("selectedLanguage") || "en";
+      const langSelector = document.getElementById("lang-switch");
+      if (langSelector) {
+        langSelector.value = savedLang;
+        langSelector.addEventListener('change', changeLanguage);
+      }
+      applyTranslations(savedLang);
+    });
+  </script>
 
   <!-- Firebase SDK (same as index.html) -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>

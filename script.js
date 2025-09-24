@@ -1335,7 +1335,12 @@ const applyTranslations = async (lang) => {
   elements.forEach((element) => {
     const key = element.getAttribute("data-translate-key");
     if (langData[key]) {
-      element.innerHTML = langData[key];
+      // Check if the element is an input placeholder
+      if (element.placeholder) {
+        element.placeholder = langData[key];
+      } else {
+        element.innerHTML = langData[key];
+      }
     }
   });
 };

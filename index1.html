@@ -217,10 +217,10 @@ function toggleHelpline() {
 
   <!-- ================= Highlight Section ================= -->
   <div class="highlight-ticker bg-gray-100 p-2 shadow">
-    <span class="highlight-label font-bold">⚡ Disaster Highlights:</span>
+    <span class="highlight-label font-bold" data-translate-key="disasterHighlights">⚡ Disaster Highlights:</span>
     <div class="highlight-track inline-block ml-2">
       <div id="highlight-items">
-        <span>Loading latest disasters...</span>
+        <span data-translate-key="loadingDisasters">Loading latest disasters...</span>
       </div>
     </div>
   </div>
@@ -266,6 +266,7 @@ function toggleHelpline() {
   <option value="pa">ਪੰਜਾਬੀ</option>
   <option value="kn">ಕನ್ನಡ</option>
   <option value="ta">தமிழ்</option>
+  <option value="te">తెలుగు</option>
 </select>
                <button id="nightToggle" class="night-btn">🌙</button>
              <a href="login.html" onclick="localStorage.clear(); firebase.auth().signOut();">logout</a>
@@ -292,17 +293,17 @@ function toggleHelpline() {
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span>✨ 🎓 For Students Like You!</span>
+                    <span data-translate-key="forStudents">✨ 🎓 For Students Like You!</span>
                 </div>
-                <h1 class="hero-title">
+                <h1 class="hero-title" data-translate-key="heroTitle">
                     <span class="gradient-text">Be Ready,</span><br>
                     <span class="gradient-text">Stay Safe!</span>
                 </h1>
-                <p class="hero-description">
+                <p class="hero-description" data-translate-key="heroDesc">
                     Learn safety through fun games and videos. Join students becoming safety heroes!
                 </p>
                 <div class="hero-buttons">
-                    <a href="#learn" class="btn btn-primary btn-large">
+                    <a href="#learn" class="btn btn-primary btn-large" data-translate-key="startLearning">
   ▶️ 🚀 Start Learning Now!
 </a>
                     
@@ -327,8 +328,8 @@ function toggleHelpline() {
     <section class="disaster-types-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">🌪️ Disaster Types</h2>
-                <p class="section-description">
+                <h2 class="section-title" data-translate-key="disasterTypesTitle">🌪️ Disaster Types</h2>
+                <p class="section-description" data-translate-key="disasterTypesDesc">
                     Learn about different disasters and how to stay safe! Click on each card to get exciting quote!
                 </p>
             </div>
@@ -337,12 +338,12 @@ function toggleHelpline() {
                     <div class="flip-card-inner">
                         <div class="flip-card-front earthquake">
                             <div class="disaster-icon">🏔️</div>
-                            <h3>🏔️ Earthquake</h3>
-                            <p>Hover to learn more!</p>
+                            <h3 data-translate-key="earthquake">🏔️ Earthquake</h3>
+                            <p data-translate-key="hoverToLearn">Hover to learn more!</p>
                         </div>
                         <div class="flip-card-back earthquake">
-                            <h3>🏔️ Earthquake</h3>
-                            <p class="safety-tip">Drop, Cover, Hold!</p>
+                            <h3 data-translate-key="earthquake">🏔️ Earthquake</h3>
+                            <p class="safety-tip" data-translate-key="earthquakeTip">Drop, Cover, Hold!</p>
                         </div>
                     </div>
                 </div>
@@ -350,12 +351,12 @@ function toggleHelpline() {
                     <div class="flip-card-inner">
                         <div class="flip-card-front flood">
                             <div class="disaster-icon">🌊</div>
-                            <h3>🌊 Flood</h3>
-                            <p>Hover to learn more!</p>
+                            <h3 data-translate-key="flood">🌊 Flood</h3>
+                            <p data-translate-key="hoverToLearn">Hover to learn more!</p>
                         </div>
                         <div class="flip-card-back flood">
-                            <h3>🌊 Flood</h3>
-                            <p class="safety-tip">Move to higher ground!</p>
+                            <h3 data-translate-key="flood">🌊 Flood</h3>
+                            <p class="safety-tip" data-translate-key="floodTip">Move to higher ground!</p>
                         </div>
                     </div>
                 </div>
@@ -363,12 +364,12 @@ function toggleHelpline() {
                     <div class="flip-card-inner">
                         <div class="flip-card-front fire">
                             <div class="disaster-icon">🔥</div>
-                            <h3>🔥 Fire</h3>
-                            <p>Hover to learn more!</p>
+                            <h3 data-translate-key="fire">🔥 Fire</h3>
+                            <p data-translate-key="hoverToLearn">Hover to learn more!</p>
                         </div>
                         <div class="flip-card-back fire">
-                            <h3>🔥 Fire</h3>
-                            <p class="safety-tip">Stop, Drop, Roll!</p>                   
+                            <h3 data-translate-key="fire">🔥 Fire</h3>
+                            <p class="safety-tip" data-translate-key="fireTip">Stop, Drop, Roll!</p>
                         </div>
                     </div>
                 </div>
@@ -376,12 +377,12 @@ function toggleHelpline() {
                     <div class="flip-card-inner">
                         <div class="flip-card-front cyclone">
                             <div class="disaster-icon">🌪️</div>
-                            <h3>🌪️ Cyclone</h3>
-                            <p>Hover to learn more!</p>
+                            <h3 data-translate-key="cyclone">🌪️ Cyclone</h3>
+                            <p data-translate-key="hoverToLearn">Hover to learn more!</p>
                         </div>
                         <div class="flip-card-back cyclone">
-                            <h3>🌪️ Cyclone</h3>
-                            <p class="safety-tip">Stay indoors safely!</p>            
+                            <h3 data-translate-key="cyclone">🌪️ Cyclone</h3>
+                            <p class="safety-tip" data-translate-key="cycloneTip">Stay indoors safely!</p>
                         </div>
                     </div>
                 </div>
@@ -394,28 +395,28 @@ function toggleHelpline() {
     <section id="dos-donts" class="dos-donts-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">✅ Do's & ❌ Don'ts</h2>
-                <p class="section-description">Simple rules to remember during emergencies! 🧠💡</p>
+                <h2 class="section-title" data-translate-key="dosDontsTitle">✅ Do's & ❌ Don'ts</h2>
+                <p class="section-description" data-translate-key="dosDontsDesc">Simple rules to remember during emergencies! 🧠💡</p>
             </div>
             <div class="dos-donts-grid">
                 <div class="dos-section">
-                    <h3 class="subsection-title dos-title">✅ DO's - Smart Actions!</h3>
+                    <h3 class="subsection-title dos-title" data-translate-key="dosTitle">✅ DO's - Smart Actions!</h3>
                     <div class="tips-list">
-                        <div class="tip-item dos-item">Stay calm and think clearly</div>
-                        <div class="tip-item dos-item">Call emergency numbers immediately</div>
-                        <div class="tip-item dos-item">Keep emergency kit ready</div>
-                        <div class="tip-item dos-item">Help family members and friends</div>
-                        <div class="tip-item dos-item">Listen to official announcements</div>
+                        <div class="tip-item dos-item" data-translate-key="dosItem1">Stay calm and think clearly</div>
+                        <div class="tip-item dos-item" data-translate-key="dosItem2">Call emergency numbers immediately</div>
+                        <div class="tip-item dos-item" data-translate-key="dosItem3">Keep emergency kit ready</div>
+                        <div class="tip-item dos-item" data-translate-key="dosItem4">Help family members and friends</div>
+                        <div class="tip-item dos-item" data-translate-key="dosItem5">Listen to official announcements</div>
                     </div>
                 </div>
                 <div class="donts-section">
-                    <h3 class="subsection-title donts-title">❌ DON'Ts - Avoid These!</h3>
+                    <h3 class="subsection-title donts-title" data-translate-key="dontsTitle">❌ DON'Ts - Avoid These!</h3>
                     <div class="tips-list">
-                        <div class="tip-item donts-item">Don't panic or run around</div>
-                        <div class="tip-item donts-item">Don't use elevators during emergencies</div>
-                        <div class="tip-item donts-item">Don't spread false information</div>
-                        <div class="tip-item donts-item">Don't ignore evacuation orders</div>
-                        <div class="tip-item donts-item">Don't touch electrical wires</div>
+                        <div class="tip-item donts-item" data-translate-key="dontsItem1">Don't panic or run around</div>
+                        <div class="tip-item donts-item" data-translate-key="dontsItem2">Don't use elevators during emergencies</div>
+                        <div class="tip-item donts-item" data-translate-key="dontsItem3">Don't spread false information</div>
+                        <div class="tip-item donts-item" data-translate-key="dontsItem4">Don't ignore evacuation orders</div>
+                        <div class="tip-item donts-item" data-translate-key="dontsItem5">Don't touch electrical wires</div>
                     </div>
                 </div>
             </div>
@@ -427,8 +428,8 @@ function toggleHelpline() {
     <section id="risk-report" class="py-12 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="section-header text-center mb-8">
-                <h2 class="section-title">📍 Your Personalized Risk Report</h2>
-                <p class="section-description">
+                <h2 class="section-title" data-translate-key="riskReportTitle">📍 Your Personalized Risk Report</h2>
+                <p class="section-description" data-translate-key="riskReportDesc">
                     Enter your school's pincode to get an AI-powered disaster risk assessment for your area.
                 </p>
             </div>
@@ -437,12 +438,12 @@ function toggleHelpline() {
                 <!-- Input Form -->
                 <div class="flex flex-col sm:flex-row gap-3 mb-6">
                     <input type="text" id="pincode-input" placeholder="Enter Pincode (e.g., 400001 for Mumbai)" class="flex-grow border rounded-lg px-4 py-2 text-center sm:text-left">
-                    <button onclick="generateRiskReport()" class="btn btn-primary">🔍 Analyze Risk</button>
+                    <button onclick="generateRiskReport()" class="btn btn-primary" data-translate-key="analyzeRisk">🔍 Analyze Risk</button>
                 </div>
 
                 <!-- Report Card Area -->
                 <div id="risk-report-container">
-                    <div id="risk-placeholder" class="text-center text-gray-400 py-8">
+                    <div id="risk-placeholder" class="text-center text-gray-400 py-8" data-translate-key="riskPlaceholder">
                         Your personalized report will appear here.
                     </div>
                     <div id="risk-loader" class="hidden text-center py-8">
@@ -471,10 +472,10 @@ function toggleHelpline() {
     <!-- heading -->
     <div class="text-center mb-10">
      
-      <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 mb-3">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 mb-3" data-translate-key="riskMapTitle">
          Disaster-Risk Hot-Spots
       </h2>
-      <p class="text-gray-600 max-w-2xl mx-auto">
+      <p class="text-gray-600 max-w-2xl mx-auto" data-translate-key="riskMapDesc">
         Zoom & tap any coloured circle to uncover real 2024-25 danger zones.  
         
       </p>
@@ -512,27 +513,27 @@ function toggleHelpline() {
     <section id="quiz" class="quiz-section">
         <div class="container">
             <div class="quiz-container">
-                <h2 class="section-title">🧠 Test Your Safety Knowledge!</h2>
-                <p class="section-description">Take our fun quiz and become a certified Safety Hero! 🏆</p>
+                <h2 class="section-title" data-translate-key="quizTitle">🧠 Test Your Safety Knowledge!</h2>
+                <p class="section-description" data-translate-key="quizDesc">Take our fun quiz and become a certified Safety Hero! 🏆</p>
                 <div class="quiz-card">
                     <div class="quiz-icon">🎯</div>
-                    <h3>Interactive Safety Quiz</h3>
-                    <p>Answer questions about earthquakes, fires, floods, and more! Earn points and unlock achievement badges! 🏅</p>
+                    <h3 data-translate-key="interactiveQuizTitle">Interactive Safety Quiz</h3>
+                    <p data-translate-key="interactiveQuizDesc">Answer questions about earthquakes, fires, floods, and more! Earn points and unlock achievement badges! 🏅</p>
                     <div class="quiz-stats">
                         <div class="stat">
                             <div class="stat-number">20</div>
-                            <div class="stat-label">Questions</div>
+                            <div class="stat-label" data-translate-key="questions">Questions</div>
                         </div>
                         <div class="stat">
                             <div class="stat-number">10 min</div>
-                            <div class="stat-label">Duration</div>
+                            <div class="stat-label" data-translate-key="duration">Duration</div>
                         </div>
                         <div class="stat">
                             <div class="stat-number">🏆</div>
-                            <div class="stat-label">Credits</div>
+                            <div class="stat-label" data-translate-key="credits">Credits</div>
                         </div>
                     </div>
-                    <button class="btn btn-secondary btn-large" onclick="startQuiz()">
+                    <button class="btn btn-secondary btn-large" onclick="startQuiz()" data-translate-key="startQuiz">
                         ▶️ 🎮 Start Quiz Game!
                     </button>
                 </div>
@@ -595,8 +596,8 @@ function toggleHelpline() {
   <section id="learn" class="learning-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">📚 Interactive Learning Hub</h2>
-      <p class="section-description">
+      <h2 class="section-title" data-translate-key="learningHubTitle">📚 Interactive Learning Hub</h2>
+      <p class="section-description" data-translate-key="learningHubDesc">
         Master disaster safety through hands-on activities and real-world scenarios! 🎯
       </p>
     </div>
@@ -607,45 +608,45 @@ function toggleHelpline() {
       <!-- Scenario Training -->
       <div class="learning-card scenario" data-type="scenario">
         <div class="learning-icon">🎭</div>
-        <h3>Scenario Training</h3>
-        <p>Practice real emergency situations in a safe virtual environment</p>
+        <h3 data-translate-key="scenarioTraining">Scenario Training</h3>
+        <p data-translate-key="scenarioTrainingDesc">Practice real emergency situations in a safe virtual environment</p>
         <div class="progress-list">
           <div class="progress-item completed">
-            <span>🏠 Home Emergency</span>
+            <span data-translate-key="homeEmergency">🏠 Home Emergency</span>
             <span class="status complete">✓ Complete</span>
           </div>
           <div class="progress-item learning">
-            <span>🏫 School Drill</span>
+            <span data-translate-key="schoolDrill">🏫 School Drill</span>
             <span class="status learn">📚 Learn</span>
           </div>
           <div class="progress-item locked">
-            <span>🌆 Public Space</span>
+            <span data-translate-key="publicSpace">🌆 Public Space</span>
             <span class="status locked">🔒 Locked</span>
           </div>
         </div>
-        <button class="btn btn-primary" onclick="startScenario()">▶️ Start Scenario</button>
+        <button class="btn btn-primary" onclick="startScenario()" data-translate-key="startScenario">▶️ Start Scenario</button>
       </div>
 
       <!-- Safety Skills -->
       <div class="learning-card skills" data-type="skills">
         <div class="learning-icon">🛡️</div>
-        <h3>Safety Skills</h3>
-        <p>Learn essential life-saving techniques step by step</p>
+        <h3 data-translate-key="safetySkills">Safety Skills</h3>
+        <p data-translate-key="safetySkillsDesc">Learn essential life-saving techniques step by step</p>
         <div class="progress-list">
           <div class="progress-item">
-            <span>🩹 First Aid Basics</span>
+            <span data-translate-key="firstAid">🩹 First Aid Basics</span>
             <span class="status progress">85%</span>
           </div>
           <div class="progress-item">
-            <span>🔥 Fire Safety</span>
+            <span data-translate-key="fireSafety">🔥 Fire Safety</span>
             <span class="status progress">60%</span>
           </div>
           <div class="progress-item">
-            <span>💨 CPR Training</span>
+            <span data-translate-key="cprTraining">💨 CPR Training</span>
             <span class="status progress">0%</span>
           </div>
         </div>
-      <button class="btn btn-secondary" onclick="openSafetySkills()">Continue Learning</button>
+      <button class="btn btn-secondary" onclick="openSafetySkills()" data-translate-key="continueLearning">Continue Learning</button>
 
 
       </div>
@@ -654,23 +655,23 @@ function toggleHelpline() {
       <!-- Virtual Drills -->
       <div class="learning-card drills" data-type="drills">
         <div class="learning-icon">🚨</div>
-        <h3>Virtual Drills</h3>
-        <p>Practice emergency procedures with timed challenges</p>
+        <h3 data-translate-key="virtualDrills">Virtual Drills</h3>
+        <p data-translate-key="virtualDrillsDesc">Practice emergency procedures with timed challenges</p>
         <div class="progress-list">
           <div class="progress-item">
-            <span>🏃‍♂️ Evacuation Drill</span>
+            <span data-translate-key="evacuationDrill">🏃‍♂️ Evacuation Drill</span>
             <span class="status time">2:30</span>
           </div>
           <div class="progress-item">
-            <span>📞 Emergency Call</span>
+            <span data-translate-key="emergencyCall">📞 Emergency Call</span>
             <span class="status time">1:45</span>
           </div>
           <div class="progress-item">
-            <span>🎒 Kit Assembly</span>
+            <span data-translate-key="kitAssembly">🎒 Kit Assembly</span>
             <span class="status time">3:15</span>
           </div>
         </div>
-       <button class="btn btn-primary" onclick="startDrill()">Start Drill</button>
+       <button class="btn btn-primary" onclick="startDrill()" data-translate-key="startDrill">Start Drill</button>
       </div>
     </div>
     <section id="safety-skills-videos" style="display: none;"</section>
@@ -826,8 +827,8 @@ function toggleHelpline() {
     <section id="videos" class="videos-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">📺 Awareness Videos</h2>
-                <p class="section-description">Watch fun and educational videos to learn disaster safety! 🎬✨</p>
+                <h2 class="section-title" data-translate-key="awarenessVideosTitle">📺 Awareness Videos</h2>
+                <p class="section-description" data-translate-key="awarenessVideosDesc">Watch fun and educational videos to learn disaster safety! 🎬✨</p>
             </div>
             <div class="videos-grid">
                 <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=BLEPakj1YTY', '_blank')">
@@ -946,8 +947,8 @@ function toggleHelpline() {
     <!-- icon + heading -->
     <span class="hz-icon">📈</span>
     <div>
-      <h3 class="hz-title">Your Learning Progress</h3>
-      <p class="hz-sub">Track your journey to becoming a Safety Hero!</p>
+      <h3 class="hz-title" data-translate-key="learningProgressTitle">Your Learning Progress</h3>
+      <p class="hz-sub" data-translate-key="learningProgressDesc">Track your journey to becoming a Safety Hero!</p>
     </div>
   </div>
 
@@ -965,15 +966,15 @@ function toggleHelpline() {
   <div class="hz-stats">
     <div class="hz-item">
       <div class="hz-num">12</div>
-      <div class="hz-label">Modules<br>Completed</div>
+      <div class="hz-label" data-translate-key="modulesCompleted">Modules<br>Completed</div>
     </div>
     <div class="hz-item">
       <div class="hz-num">4</div>
-      <div class="hz-label">Badges<br>Earned</div>
+      <div class="hz-label" data-translate-key="badgesEarned">Badges<br>Earned</div>
     </div>
     <div class="hz-item">
       <div class="hz-num">450</div>
-      <div class="hz-label">Points<br>Scored</div>
+      <div class="hz-label" data-translate-key="pointsScored">Points<br>Scored</div>
     </div>
   </div>
 </section>
@@ -985,25 +986,25 @@ function toggleHelpline() {
                 <div class="footer-column">
                    
                 <div class="footer-column">
-                    <h3>📧 Contact Us</h3>
+                    <h3 data-translate-key="contactUs">📧 Contact Us</h3>
                     <div class="contact-info">
                         <div class="contact-item">
-                            <div class="contact-label">📧 Email</div>
+                            <div class="contact-label" data-translate-key="email">📧 Email</div>
                             <div class="contact-value">safety@safetyfirst.edu</div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-label">📱 WhatsApp</div>
+                            <div class="contact-label" data-translate-key="whatsapp">📱 WhatsApp</div>
                             <div class="contact-value">+91 8855027901</div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-label">🌐 Website</div>
+                            <div class="contact-label" data-translate-key="website">🌐 Website</div>
                             <div class="contact-value">www.safetyfirst.edu</div>
                         </div>
                     </div>
                 </div>
                 <div class="footer-column">
-                    <h3>🎓 About SafetyFirst</h3>
-                    <p>Making disaster preparedness fun and accessible for students worldwide through interactive learning experiences.</p>
+                    <h3 data-translate-key="aboutSafetyFirst">🎓 About SafetyFirst</h3>
+                    <p data-translate-key="aboutDesc">Making disaster preparedness fun and accessible for students worldwide through interactive learning experiences.</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1013,7 +1014,7 @@ function toggleHelpline() {
                     </svg>
                     <span class="footer-brand-text">SafetyFirst</span>
                 </div>
-                <p>© 2025 SafetyFirst Education. Making disaster preparedness fun for students worldwide! 🌍✨</p>
+                <p data-translate-key="footerText">© 2025 SafetyFirst Education. Making disaster preparedness fun for students worldwide! 🌍✨</p>
             </div>
         </div>
     </footer>
