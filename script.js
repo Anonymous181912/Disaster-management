@@ -1,3 +1,6 @@
+// Store original texts
+const originalTexts = new Map();
+
 // Quiz Data
 const quizData = [
   {
@@ -315,8 +318,66 @@ function callEmergency(number) {
   )
 }
 
-// Smooth scrolling for navigation links
+// Function to translate text
+async function translateTexts(texts, targetLang) {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/translate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                texts: texts,
+                src_lang: 'eng_Latn',
+                tgt_lang: targetLang,
+            }),
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.translations;
+    } catch (error) {
+        console.error("Could not translate texts:", error);
+        return texts.map(() => "Translation failed");
+    }
+}
+
+// Function to change the language of the page
+async function changeLanguage(lang) {
+    if (lang === 'eng_Latn') {
+        // Restore original English text
+        for (const [element, originalText] of originalTexts.entries()) {
+            element.innerText = originalText;
+        }
+        return;
+    }
+
+    const elementsToTranslate = document.querySelectorAll('[data-translate]');
+
+    // Store original texts if not already stored
+    if (originalTexts.size === 0) {
+        elementsToTranslate.forEach(el => {
+            originalTexts.set(el, el.innerText);
+        });
+    }
+
+    const texts = Array.from(elementsToTranslate).map(el => originalTexts.get(el));
+    const translatedTexts = await translateTexts(texts, lang);
+
+    elementsToTranslate.forEach((el, index) => {
+        el.innerText = translatedTexts[index];
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    const languageSelector = document.getElementById('language-selector');
+    languageSelector.addEventListener('change', (event) => {
+        changeLanguage(event.target.value);
+    });
+
   // Smooth scrolling for navigation links
   const navLinks = document.querySelectorAll(".nav-link")
   navLinks.forEach((link) => {
