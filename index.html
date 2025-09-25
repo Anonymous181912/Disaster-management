@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-translate-key="loginSignupTitle">SafetyFirst - Login & Signup</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Aurora Background Effect */
+    .aurora-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #dcfce7 100%);
+    }
+
+    .aurora-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.7;
+    }
+
+    .shape1 {
+      width: 400px;
+      height: 400px;
+      background: #a5f3fc;
+      top: -10%;
+      left: -10%;
+      animation: move-shape1 20s infinite alternate ease-in-out;
+    }
+
+    .shape2 {
+      width: 500px;
+      height: 500px;
+      background: #a7f3d0;
+      bottom: -15%;
+      right: -15%;
+      animation: move-shape2 22s infinite alternate ease-in-out;
+    }
+
+    .shape3 {
+      width: 350px;
+      height: 350px;
+      background: #c7d2fe;
+      top: 20%;
+      right: 20%;
+      animation: move-shape3 18s infinite alternate ease-in-out;
+    }
+
+    @keyframes move-shape1 {
+      from { transform: translate(0, 0) rotate(0deg); }
+      to { transform: translate(40px, 60px) rotate(30deg); }
+    }
+    @keyframes move-shape2 {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(-50px, 20px) scale(1.1); }
+    }
+    @keyframes move-shape3 {
+      from { transform: scale(1); }
+      to { transform: scale(1.2); }
+    }
+
+    /* Form transition animations */
+    .form-container {
+      transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    }
+    .form-hidden {
+      opacity: 0;
+      transform: scale(0.98);
+      position: absolute;
+      pointer-events: none;
+      width: calc(100% - 4rem); /* Match padding of parent */
+    }
+    .main-card {
+      position: relative;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+  <div class="aurora-background">
+    <div class="aurora-shape shape1"></div>
+    <div class="aurora-shape shape2"></div>
+    <div class="aurora-shape shape3"></div>
+  </div>
+
+  <div class="w-full max-w-sm mx-auto">
+    <div class="main-card bg-white/75 backdrop-blur-xl rounded-2xl shadow-lg p-8">
+      
+      <div class="text-center mb-8">
+        <div class="flex justify-center items-center gap-3">
+          <div class="bg-blue-600 p-2 rounded-lg text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              <path d="M2.5 13.5c4.664-2.332 9.33-2.332 14 0" fill="none" stroke="currentColor" stroke-width="1.5" style="filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));"></path>
+              <path d="M2.5 11.5 A 10 10 0 0 1 21.5 11.5" stroke="none" fill="currentColor" fill-opacity="0.1"></path>
+            </svg>
+          </div>
+          <h1 class="text-3xl font-extrabold text-blue-800">SafetyFirst</h1>
+        </div>
+        <p data-translate-key="heroSlogan" class="mt-2 text-gray-600">Be Ready, <span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-yellow-500">Stay Safe!</span></p>
+      </div>
+      <div class="text-center mb-4">
+        <select id="lang-switch" onchange="changeLanguage()" class="nav-link" style="background:#fff; border:1px solid #ccc; border-radius:4px; padding:4px 8px; font-size:14px;">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="mr">मराठी</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ta">தமிழ்</option>
+        </select>
+      </div>
+
+      <div id="message" class="hidden text-center text-sm p-3 rounded-lg mb-4"></div>
+
+      <div id="signupForm" class="form-container">
+        <h2 data-translate-key="createAccountTitle" class="text-xl font-bold text-gray-700 text-center mb-6">Create an Account</h2>
+        <div class="space-y-4">
+          <input type="text" id="signupName" data-translate-key="fullNamePlaceholder" placeholder="Full Name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <input type="email" id="signupEmail" data-translate-key="emailAddressPlaceholder" placeholder="Email Address" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <input type="password" id="signupPassword" data-translate-key="passwordPlaceholder" placeholder="Password" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+        </div>
+        <button id="signupButton" class="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg mt-6 transition transform hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/30">
+          <span data-translate-key="startLearningButton">Start Learning Now</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+        </button>
+        <p class="text-center text-sm text-gray-600 mt-6">
+          <span data-translate-key="alreadyHaveAccount">Already have an account?</span> 
+          <span id="showLoginLink" class="font-semibold text-blue-600 hover:underline cursor-pointer" data-translate-key="loginLink">Login</span>
+        </p>
+      </div>
+
+      <div id="loginForm" class="form-container form-hidden">
+        <h2 data-translate-key="welcomeBackTitle" class="text-xl font-bold text-gray-700 text-center mb-6">Welcome Back!</h2>
+        <div class="space-y-4">
+          <input type="email" id="loginEmail" data-translate-key="emailAddressPlaceholder" placeholder="Email Address" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+          <input type="password" id="loginPassword" data-translate-key="passwordPlaceholder" placeholder="Password" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+        </div>
+        <button id="loginButton" class="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg mt-6 transition transform hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/30">
+           <span data-translate-key="startLearningButton">Start Learning Now</span>
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+        </button>
+        <p class="text-center text-sm text-gray-600 mt-6">
+          <span data-translate-key="newToSafetyFirst">New to SafetyFirst?</span>
+          <span id="showSignupLink" class="font-semibold text-blue-600 hover:underline cursor-pointer" data-translate-key="signupLink">Sign up</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="translation.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    // IMPORTANT: Replace with your actual Firebase project configuration
+     var firebaseConfig = {
+      apiKey: "AIzaSyAJO8evM1zTHiKk9LgQoD9JQ0yCJzHcFB4",
+      authDomain: "disaster-management-1f766.firebaseapp.com",
+      projectId: "disaster-management-1f766",
+      storageBucket: "disaster-management-1f766.firebasestorage.app",
+      messagingSenderId: "570748616582",
+      appId: "1:570748616582:web:f3cb38a280a7a3c4fbf607",
+      measurementId: "G-T2M5PQVHNY"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const signupForm = document.getElementById("signupForm");
+    const loginForm = document.getElementById("loginForm");
+    const messageDiv = document.getElementById("message");
+
+    function showMessage(message, isError = false) {
+        messageDiv.textContent = message;
+        messageDiv.className = `text-center text-sm p-3 rounded-lg mb-4 ${isError ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`;
+        messageDiv.classList.remove('hidden');
+    }
+
+    // Toggle between login and signup forms
+    function showLogin() {
+      signupForm.classList.add('form-hidden');
+      loginForm.classList.remove('form-hidden');
+      messageDiv.classList.add('hidden');
+    }
+    function showSignup() {
+      loginForm.classList.add('form-hidden');
+      signupForm.classList.remove('form-hidden');
+      messageDiv.classList.add('hidden');
+    }
+
+    // Signup function
+    async function signup() {
+      const name = document.getElementById("signupName").value.trim();
+      const email = document.getElementById("signupEmail").value.trim();
+      const password = document.getElementById("signupPassword").value;
+
+      if (!name || !email || !password) {
+        showMessage("Please fill in all fields.", true);
+        return;
+      }
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        
+        // Store additional user info in Firestore
+        await setDoc(doc(db, "users", user.uid), {
+          name: name,
+          email: email,
+          createdAt: new Date()
+        });
+        
+        showMessage("Signup successful! Redirecting...");
+        // Redirect to your main app page after a short delay
+        setTimeout(() => window.location.href = "index1.html", 1500);
+
+      } catch (error) {
+        showMessage(error.message, true);
+        console.error("Signup Error:", error);
+      }
+    }
+
+    // Hardcoded admin credentials
+    const ADMIN_EMAIL = "admin@gmail.com";
+    const ADMIN_PASSWORD = "Admin@123";
+
+    // Login function
+    async function login() {
+      const email = document.getElementById("loginEmail").value.trim();
+      const password = document.getElementById("loginPassword").value;
+
+      if (!email || !password) {
+        showMessage("Please enter both email and password.", true);
+        return;
+      }
+
+      // Check for hardcoded admin login
+      if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+        localStorage.setItem("isAdmin", "true");
+        showMessage("Admin login successful! Redirecting...");
+        setTimeout(() => window.location.href = "index1.html", 1500);
+        return;
+      }
+
+      // Normal Firebase login
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        localStorage.setItem("isAdmin", "false");
+        showMessage("Login successful! Redirecting...");
+        setTimeout(() => window.location.href = "index1.html", 1500);
+
+      } catch (error) {
+        showMessage("Invalid credentials. Please try again.", true);
+        console.error("Login Error:", error);
+      }
+    }
+    
+    // ATTACH EVENT LISTENERS
+    document.getElementById('loginButton').addEventListener('click', login);
+    document.getElementById('signupButton').addEventListener('click', signup);
+    document.getElementById('showLoginLink').addEventListener('click', showLogin);
+    document.getElementById('showSignupLink').addEventListener('click', showSignup);
+
+    // FORCE LOGIN FIRST
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        // If user is already logged in, redirect them to the main page
+        window.location.href = "index1.html";
+      }
+    });
+  </script>
+</body>
+</html>
