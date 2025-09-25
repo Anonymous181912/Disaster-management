@@ -3,19 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<<<<<<< HEAD
   <title data-translate-key="loginSignupTitle">SafetyFirst - Login & Signup</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
   
-=======
-  <title>SafetyFirst - Login & Signup</title>
-  
-  <!-- Tailwind CSS for styling -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts: Inter -->
->>>>>>> a0f4d263ceb1428ae0f117ebc85b256e381af297
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -114,15 +105,8 @@
   <div class="w-full max-w-sm mx-auto">
     <div class="main-card bg-white/75 backdrop-blur-xl rounded-2xl shadow-lg p-8">
       
-<<<<<<< HEAD
       <div class="text-center mb-8">
         <div class="flex justify-center items-center gap-3">
-=======
-      <!-- Redesigned Logo Section -->
-      <div class="text-center mb-8">
-        <div class="flex justify-center items-center gap-3">
-          <!-- New SVG Icon for Disaster Management -->
->>>>>>> a0f4d263ceb1428ae0f117ebc85b256e381af297
           <div class="bg-blue-600 p-2 rounded-lg text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -133,7 +117,6 @@
           </div>
           <h1 class="text-3xl font-extrabold text-blue-800">SafetyFirst</h1>
         </div>
-<<<<<<< HEAD
         <p data-translate-key="heroSlogan" class="mt-2 text-gray-600">Be Ready, <span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-yellow-500">Stay Safe!</span></p>
       </div>
       <div class="text-center mb-4">
@@ -179,56 +162,12 @@
         <p class="text-center text-sm text-gray-600 mt-6">
           <span data-translate-key="newToSafetyFirst">New to SafetyFirst?</span>
           <span id="showSignupLink" class="font-semibold text-blue-600 hover:underline cursor-pointer" data-translate-key="signupLink">Sign up</span>
-=======
-        <p class="mt-2 text-gray-600">Be Ready, <span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-yellow-500">Stay Safe!</span></p>
-      </div>
-
-      <!-- Error/Success Message Display -->
-      <div id="message" class="hidden text-center text-sm p-3 rounded-lg mb-4"></div>
-
-      <!-- Signup Form -->
-      <div id="signupForm" class="form-container">
-        <h2 class="text-xl font-bold text-gray-700 text-center mb-6">Create an Account</h2>
-        <div class="space-y-4">
-          <input type="text" id="signupName" placeholder="Full Name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-          <input type="email" id="signupEmail" placeholder="Email Address" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-          <input type="password" id="signupPassword" placeholder="Password" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-        </div>
-        <button onclick="signup()" class="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg mt-6 transition transform hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/30">
-          <span>Start Learning Now</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-        </button>
-        <p class="text-center text-sm text-gray-600 mt-6">
-          Already have an account? 
-          <span class="font-semibold text-blue-600 hover:underline cursor-pointer" onclick="showLogin()">Login</span>
-        </p>
-      </div>
-
-      <!-- Login Form -->
-      <div id="loginForm" class="form-container form-hidden">
-        <h2 class="text-xl font-bold text-gray-700 text-center mb-6">Welcome Back!</h2>
-        <div class="space-y-4">
-          <input type="email" id="loginEmail" placeholder="Email Address" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-          <input type="password" id="loginPassword" placeholder="Password" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-        </div>
-        <button onclick="login()" class="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg mt-6 transition transform hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/30">
-           <span>Start Learning Now</span>
-           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
-        </button>
-        <p class="text-center text-sm text-gray-600 mt-6">
-          New to SafetyFirst? 
-          <span class="font-semibold text-blue-600 hover:underline cursor-pointer" onclick="showSignup()">Sign up</span>
->>>>>>> a0f4d263ceb1428ae0f117ebc85b256e381af297
         </p>
       </div>
     </div>
   </div>
 
-<<<<<<< HEAD
   <script src="translation.js"></script>
-=======
-  <!-- Firebase SDKs (Modular v9+) -->
->>>>>>> a0f4d263ceb1428ae0f117ebc85b256e381af297
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -261,31 +200,19 @@
     }
 
     // Toggle between login and signup forms
-<<<<<<< HEAD
     function showLogin() {
-=======
-    window.showLogin = function() {
->>>>>>> a0f4d263ceb1428ae0f117ebc85b256e381af297
       signupForm.classList.add('form-hidden');
       loginForm.classList.remove('form-hidden');
       messageDiv.classList.add('hidden');
     }
-<<<<<<< HEAD
     function showSignup() {
-=======
-    window.showSignup = function() {
->>>>>>> a0f4d263ceb1428ae0f117ebc85b256e381af297
       loginForm.classList.add('form-hidden');
       signupForm.classList.remove('form-hidden');
       messageDiv.classList.add('hidden');
     }
 
     // Signup function
-<<<<<<< HEAD
     async function signup() {
-=======
-    window.signup = async function() {
->>>>>>> a0f4d263ceb1428ae0f117ebc85b256e381af297
       const name = document.getElementById("signupName").value.trim();
       const email = document.getElementById("signupEmail").value.trim();
       const password = document.getElementById("signupPassword").value;
@@ -321,11 +248,7 @@
     const ADMIN_PASSWORD = "Admin@123";
 
     // Login function
-<<<<<<< HEAD
     async function login() {
-=======
-    window.login = async function() {
->>>>>>> a0f4d263ceb1428ae0f117ebc85b256e381af297
       const email = document.getElementById("loginEmail").value.trim();
       const password = document.getElementById("loginPassword").value;
 
@@ -354,7 +277,6 @@
         console.error("Login Error:", error);
       }
     }
-<<<<<<< HEAD
     
     // ATTACH EVENT LISTENERS
     document.getElementById('loginButton').addEventListener('click', login);
@@ -372,13 +294,3 @@
   </script>
 </body>
 </html>
-=======
-    // FORCE LOGIN FIRST
-auth.onAuthStateChanged(user => {
-  if (!user) return; // stay on page (it's the login form)
-  // user exists → continue normally
-});
-  </script>
-</body>
-</html>
->>>>>>> a0f4d263ceb1428ae0f117ebc85b256e381af297
