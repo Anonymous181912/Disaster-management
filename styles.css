@@ -1815,3 +1815,65 @@ html.dark .hz-icon {
   filter: brightness(0) invert(1);   /* white icon */
 }
 
+/* ------  branching story card  ------ */
+.story-box{
+  margin-top:16px;
+  padding:16px;
+  background:rgba(255,255,255,.6);
+  border-radius:12px;
+  min-height:140px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+#story-text{
+  font-size:15px;
+  line-height:1.5;
+  margin-bottom:12px;
+}
+.choice-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.choice-buttons button{
+  width:100%;
+  text-align:left;
+  background:#3b82f6;
+  color:#fff;
+  border:none;
+  padding:10px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:background .25s;
+}
+.choice-buttons button:hover{
+  background:#2563eb;
+}
+
+.story-gif{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+.choice-form{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;}
+.choice-form label{
+  background:#f3f4f6;
+  padding:10px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:background .2s;
+}
+.choice-form label:hover{background:#e5e7eb;}
+.choice-form input{margin-right:8px;}
+.feedback{
+  padding:10px 14px;
+  border-radius:8px;
+  font-weight:600;
+}
+.feedback.correct{background:#d1fae5;color:#065f46;}
+.feedback.wrong{background:#fee2e2;color:#991b1b;}
+.hidden{display:none;}

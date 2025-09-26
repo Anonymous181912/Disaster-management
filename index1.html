@@ -10,7 +10,6 @@
 </head>
 <body>
   
-  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -240,41 +239,29 @@ function toggleHelpline() {
   </div>
     <!-- Navigation -->
     <nav class="navbar">
-      
-        <div class="nav-container">
-            <div class="nav-brand">
-                <div class="logo-container">
-                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    </svg>
-                </div>
-                <span class="brand-text">SafetyFirst</span>
-            </div>
-            <div class="nav-links">
-               <a href="#home" class="nav-link" data-translate-key="navHome">🏠 Home</a>
-<a href="#dos-donts" class="nav-link" data-translate-key="navDonts">Do's & Don'ts</a>
-<button id="helpline-btn" onclick="toggleHelpline()" data-translate-key="helpline">📞 Helpline</button>
-<a href="#quiz" class="nav-link" data-translate-key="quiz">🧠 Quiz</a>
-<a href="#videos" class="nav-link" data-translate-key="videos">📺 Videos</a>
-<a href="#contact" class="nav-link" data-translate-key="contact">📧 Contact</a>
-<button class="nav-link" id="adminBtn" onclick="openDashboard()" data-translate-key="admin">📊 Admin</button>
-              <!-- paste INSIDE <div class="nav-links">  (line ~80) -->
-<select id="lang-switch" class="nav-link" style="background:#fff; border:1px solid #ccc; border-radius:4px; padding:4px 8px; font-size:14px;">
-  <option value="en">English</option>
-  <option value="hi">हिन्दी</option>
-  <option value="mr">मराठी</option>
-  <option value="pa">ਪੰਜਾਬੀ</option>
-  <option value="kn">ಕನ್ನಡ</option>
-  <option value="ta">தமிழ்</option>
-</select>
-               <button id="nightToggle" class="night-btn">🌙</button>
-
-             <a href="index.html" onclick="localStorage.clear(); firebase.auth().signOut();">logout</a>
-
-                
+  <div class="nav-container">
+    <div class="nav-brand">
+      <div class="logo-container">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <span class="brand-text">SafetyFirst</span>
     </div>
-        </div>
-    </nav>
+    <div class="nav-links">
+      <a href="#home" class="nav-link" data-translate-key="navHome">🏠 Home</a>
+      <button id="helpline-btn" onclick="toggleHelpline()" data-translate-key="helpline">📞 Helpline</button>
+     <a href="#dos-donts" class="nav-link">Do's & Don'ts</a>
+      <a href="#quiz" class="nav-link" data-translate-key="quiz">🧠 Quiz</a>
+      <a href="#videos" class="nav-link" data-translate-key="videos">📺 Videos</a>
+      <a href="#contact" class="nav-link" data-translate-key="contact">📧 Contact</a>
+      <button class="nav-link" id="adminBtn" onclick="openDashboard()" data-translate-key="admin">📊 Admin</button>
+
+      <button id="nightToggle" class="night-btn">🌙</button>
+      <a href="index.html" onclick="localStorage.clear(); firebase.auth().signOut();">logout</a>
+    </div>
+  </div>
+</nav>
 <script>
     const btn = document.getElementById('nightToggle');
     btn.onclick = () => {
@@ -294,7 +281,7 @@ function toggleHelpline() {
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span>✨ 🎓 For Students Like You!</span>
+                    <span>🙏🏻🙏🏻Saving Lives & Beyond “आपदा सेवा सदैव सर्वत्र"🙏🏻🙏🏻</span>
                 </div>
                 <h1 class="hero-title">
                     <span class="gradient-text">Be Ready,</span><br>
@@ -1057,6 +1044,23 @@ function toggleHelpline() {
             data-url="https://www.reuters.com/business/environment/floods-landslides-indian-kashmir-kill-60-over-200-missing-2025-08-15/">
         🗓️ 2025: Assam Floods
       </span>
+       
+       <span class="highlight-item"
+            data-title="2025: Himachal Rain Havoc"
+            data-date="Sep 19, 2025"
+            data-desc="Himachal Pradesh rain havoc: Over 300 dead in
+             floods, landslides; IMD's red alert till Tuesday."
+            data-url="https://timesofindia.indiatimes.com/city/shimla/over-300-dead-in-himachal-pradesh-as-heavy-rains-trigger-landslides-floods-16-die-in-manimahesh-yatra/articleshowprint/123626764.cms">
+        🗓️ 2025:  Himachal Rain Havoc
+      </span>
+
+            <span class="highlight-item"
+            data-title="2025: Punjab vulnerability"
+            data-date="Sep 8, 2025"
+            data-desc="Encroachments, climate change may have led to Punjab’s worst floods in decades"
+            data-url="https://www.thehindu.com/news/national/punjab/encroachments-climate-change-may-have-led-to-punjabs-worst-floods-in-decades/article70022750.ece">
+        🗓️ 2025:  Punjab vulnerability
+      </span>
 
     </div>
   </div>
@@ -1138,6 +1142,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
+
 <script>
   // copy the same config you used in login.html
   var firebaseConfig = {
@@ -1155,5 +1160,50 @@ document.addEventListener("DOMContentLoaded", () => {
   window.auth = firebase.auth();
   window.db = firebase.firestore();
 
+
+  // Function to load translations from JSON files
+async function loadTranslations(lang) {
+  try {
+    const response = await fetch(`locales/${lang}.json`);
+    if (!response.ok) {
+      throw new Error(`Could not load ${lang}.json`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error loading translations:', error);
+    return null;
+  }
+}
+
+// Function to apply translations to the webpage
+async function applyTranslations(lang) {
+  const translations = await loadTranslations(lang);
+  if (!translations) return;
+
+  const elements = document.querySelectorAll('[data-translate-key]');
+  elements.forEach(element => {
+    const key = element.getAttribute('data-translate-key');
+    element.textContent = translations[key] || element.textContent;
+  });
+}
+
+// Function to handle language change
+function changeLanguage() {
+  const selectedLang = document.getElementById('lang-switch').value;
+  localStorage.setItem('language', selectedLang); // Save preference
+  applyTranslations(selectedLang);
+}
+
+// Event listener for language switcher
+document.getElementById('lang-switch').addEventListener('change', changeLanguage);
+
+// Initialize translations on page load
+document.addEventListener('DOMContentLoaded', async () => {
+  const savedLang = localStorage.getItem('language') || 'en'; // Get saved language or default to English
+  await applyTranslations(savedLang); // Apply translation on page load
+});
+
+
+ 
 
 </script>

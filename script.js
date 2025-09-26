@@ -1,4 +1,4 @@
-// Quiz Data
+
 const OWM_API_KEY = "61402c232e755c0a6e1e414e1c0280b5"; 
 
 const quizData = [
@@ -500,17 +500,11 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 })
-const GEMINI_API_KEY = "AIzaSyDmLCzXrgUPTCNel5KQgcwXRXo1mgdrcpA";  
-const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`;
+const GEMINI_API_KEY = "AIzaSyDW2H6Gp6cuFR5EBj1scri9vbplkPWR9iY";  // Replace 'YOUR_API_KEY' with your actual API key
 
+const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 
-
-function toggleChat() {
-  const chat = document.getElementById("chatbot");
-  chat.style.display = chat.style.display === "flex" ? "none" : "flex";
-}
-
-function sendMessage() {
+async function sendMessage() {
   const input = document.getElementById("chat-input");
   const message = input.value.trim();
   if (!message) return;
@@ -529,11 +523,11 @@ function sendMessage() {
   })
     .then(res => res.json())
     .then(data => {
-     console.log("📦 Gemini FULL response:", JSON.stringify(data, null, 2));
-  // ✅ You'll see this in Replit console
-      const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "⚠️ Gemini returned no answer.";
-      updateLastBotMessage(reply);
-    })
+     console.log("📦 FULL response:", JSON.stringify(data, null, 2));
+    // ✅ You'll see this in Replit console
+     const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "⚠️ Gemini returned no answer.";
+    updateLastBotMessage(reply);
+  })
     .catch(err => {
       console.error("Gemini API Error:", err);
       updateLastBotMessage("❌ Failed to reach Gemini API.");
@@ -677,60 +671,8 @@ window.onclick = function(event) {
 }
 
 
-// Learning Hub - Click Functionality
-document.querySelectorAll(".learning-card").forEach(card => {
-  card.style.cursor = "pointer"; // show hand cursor
-  card.addEventListener("click", function (e) {
-    // Prevent double trigger if clicking the button inside
-    if (e.target.tagName === "BUTTON") return;
 
-    const type = this.getAttribute("data-type");
 
-    // Add bounce animation
-    this.classList.add("card-bounce");
-    setTimeout(() => this.classList.remove("card-bounce"), 600);
-
-    // Show info
-    switch (type) {
-      case "scenario":
-        alert("🎭 Scenario Training\n\nPractice emergencies like Home, School, and Public spaces in a safe environment!");
-        break;
-      case "skills":
-        alert("🛡️ Safety Skills\n\nLearn step-by-step First Aid, Fire Safety, and CPR training.");
-        break;
-      case "drills":
-        alert("🚨 Virtual Drills\n\nTry evacuation drills, emergency calls, and kit assembly with timers.");
-        break;
-    }
-  });
-});
-document.addEventListener("DOMContentLoaded", function () {
-  // Learning Hub - Click Functionality
-  document.querySelectorAll(".learning-card").forEach(card => {
-    card.style.cursor = "pointer"; // make it look clickable
-
-    card.addEventListener("click", function () {
-      const type = this.getAttribute("data-type");
-
-      // Add bounce animation
-      this.classList.add("card-bounce");
-      setTimeout(() => this.classList.remove("card-bounce"), 600);
-
-      // Show info
-      switch (type) {
-        case "scenario":
-          alert("🎭 Scenario Training\n\nPractice emergencies like Home, School, and Public spaces in a safe environment!");
-          break;
-        case "skills":
-          alert("🛡️ Safety Skills\n\nLearn step-by-step First Aid, Fire Safety, and CPR training.");
-          break;
-        case "drills":
-          alert("🚨 Virtual Drills\n\nTry evacuation drills, emergency calls, and kit assembly with timers.");
-          break;
-      }
-    });
-  });
-});
 function showLearnModal(title, description, iconUrl, listItems = []) {
   const modal = document.getElementById("learn-modal");
   modal.style.display = "flex";
@@ -1212,14 +1154,7 @@ window.logout = logout;
         }
 
 
-        // --- NEW TRANSLATION LOGIC ---
-
-
-
-// --- END OF NEW TRANSLATION LOGIC ---
-
-
-// --- EXISTING AND MODIFIED LOGIC ---
+     
 
 // Smooth scrolling for navigation links
 document.addEventListener("DOMContentLoaded", () => {
@@ -1227,8 +1162,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- TRANSLATION INITIALIZATION ---
   const savedLang = localStorage.getItem("selectedLanguage") || "en"; // Get saved lang or default to English
   document.getElementById("language-selector").value = savedLang;
-  applyTranslations(savedLang); // Apply translation on page load
-  // --- END TRANSLATION INITIALIZATION ---
+  
 
   const navLinks = document.querySelectorAll(".nav-link");
   navLinks.forEach((link) => {
@@ -1326,33 +1260,8 @@ async function fetchLanguage(lang) {
   return languageContent[lang];
 }
 
-// Function to apply translations based on the selected language
-const applyTranslations = async (lang) => {
-  const langData = await fetchLanguage(lang);
-  if (!langData) return;
-
-  const elements = document.querySelectorAll("[data-translate-key]");
-  elements.forEach((element) => {
-    const key = element.getAttribute("data-translate-key");
-    if (langData[key]) {
-      element.innerHTML = langData[key];
-    }
-  });
-};
-
-// Function to change language, save preference, and apply translations
-const changeLanguage = () => {
-  const selectedLang = document.getElementById("lang-switch").value;
-  localStorage.setItem("selectedLanguage", selectedLang); // Save preference
-  applyTranslations(selectedLang);
-};
-
-// --- END OF NEW TRANSLATION LOGIC ---
 
 
-// --- EXISTING AND MODIFIED LOGIC ---
-
-// Smooth scrolling for navigation links
 document.addEventListener("DOMContentLoaded", () => {
   
   // --- TRANSLATION INITIALIZATION ---
@@ -1362,8 +1271,7 @@ document.addEventListener("DOMContentLoaded", () => {
     langSelector.value = savedLang;
     langSelector.addEventListener('change', changeLanguage);
   }
-  applyTranslations(savedLang); // Apply translation on page load
-  // --- END TRANSLATION INITIALIZATION ---
+
 
   const navLinks = document.querySelectorAll(".nav-link");
   navLinks.forEach((link) => {
@@ -1392,3 +1300,76 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+const {Translate} = require('@google-cloud/translate').v2();
+const translate = new Translate({key: 'YOUR_API_KEY'});
+
+async function translateText(text, targetLanguage) {
+  const request = {
+    q: [text],
+    source: 'en',
+    target: targetLanguage,
+    format: ['text']
+  };
+
+  try {
+    const [response] = await translate(request);
+    const translation = response.data.translations[0].translatedText;
+    console.log(translation);
+  } catch (err) {
+    console.error('Error during translation:', err);
+  }
+}
+
+translateText('Hello, world!', 'es'); // Translates "Hello, world!" from English to 
+
+// universal switcher (put in all pages)
+document.addEventListener('DOMContentLoaded', () => {
+  const sel = document.getElementById('lang-switch');
+  if (!sel) return;
+  sel.addEventListener('change', async e => {
+    const lang = e.target.value;                       // 'hi', 'mr', ...
+    document.querySelectorAll('[data-t]').forEach(async el => {
+      const key = el.dataset.t;
+      el.innerHTML = await lectoTranslate(key, lang);  // live translation
+    });
+  });
+});
+
+const CACHE = {};
+async function batchTranslate(texts, target = 'hi') {
+  const key = target + '|' + texts.join('␟');
+  if (CACHE[key]) return CACHE[key];
+
+  // LibreTranslate accepts multiple “q” parameters in one call
+  const body = { source: 'en', target };
+  texts.forEach((t, i) => body[`q[${i}]`] = t);
+
+  const res = await fetch(LIBRE_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(body)
+  });
+  const out = (await res.json()).translations;
+  CACHE[key] = out;
+  return out;
+}
+
+let lastCall = 0;
+document.getElementById('lang-switch')?.addEventListener('change', async e => {
+  const now = Date.now();
+  if (now - lastCall < 1500) return;          // 1.5 s throttle
+  lastCall = now;
+
+  const lang = e.target.value;
+  const nodes = [...document.querySelectorAll('[data-t]')];
+  const originals = nodes.map(n => n.dataset.t);
+
+  try {
+    const translated = await batchTranslate(originals, lang);
+    nodes.forEach((el, i) => el.innerHTML = translated[i]);
+  } catch (err) {
+    console.warn('LibreTranslate rate limit – try again in 2 s');
+  }
+});
+
+
