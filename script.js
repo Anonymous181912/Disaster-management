@@ -334,6 +334,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   })
+  const pincodeInput = document.getElementById('pincode-input');
+  if (pincodeInput) {
+    pincodeInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        generateRiskReport();
+      }
+    });
+  }
 
   // Add scroll effect to navbar
   window.addEventListener("scroll", () => {
