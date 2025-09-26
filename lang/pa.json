@@ -1,140 +1,160 @@
 {
-  "mainPageTitle": "ਸੇਫਟੀਫਸਟ - ਵਿਦਿਆਰਥੀਆਂ ਲਈ ਆਫ਼ਤ ਦੀ ਤਿਆਰੀ",
-  "loginSignupTitle": "ਸੇਫਟੀਫਸਟ - ਲੌਗਇਨ ਅਤੇ ਸਾਈਨ ਅੱਪ",
-  "dashboardTitle": "ਸੇਫਟੀਫਸਟ – ਪ੍ਰਬੰਧਕ ਡੈਸ਼ਬੋਰਡ",
-  "navHome": "🏠 ਘਰ",
-  "navDonts": "ਕੀ ਕਰਨਾ ਹੈ ਅਤੇ ਕੀ ਨਹੀਂ ਕਰਨਾ ਹੈ",
-  "helpline": "📞 ਹੈਲਪਲਾਈਨ",
-  "quiz": "🧠 ਕਵਿਜ਼",
-  "videos": "📺 ਵੀਡੀਓਜ਼",
-  "contact": "📧 ਸੰਪਰਕ",
-  "admin": "📊 ਪ੍ਰਸ਼ਾਸਕ",
-  "logout": "ਲਾਗ ਆਉਟ",
-  "startLearningButton": "ਹੁਣੇ ਸਿੱਖਣਾ ਸ਼ੁਰੂ ਕਰੋ",
-  "closeButton": "ਬੰਦ ਕਰੋ",
-  "disasterHighlights": "⚡ ਆਫ਼ਤ ਦੀਆਂ ਮੁੱਖ ਗੱਲਾਂ:",
-  "loadingDisasters": "ਨਵੀਨਤਮ ਆਫ਼ਤਾਂ ਨੂੰ ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...",
-  "forStudents": "✨ 🎓 ਤੁਹਾਡੇ ਵਰਗੇ ਵਿਦਿਆਰਥੀਆਂ ਲਈ!",
-  "heroSlogan": "ਤਿਆਰ ਰਹੋ, ਸੁਰੱਖਿਅਤ ਰਹੋ!",
-  "heroTitle1": "ਤਿਆਰ ਰਹੋ,",
-  "heroTitle2": "ਸੁਰੱਖਿਅਤ ਰਹੋ!",
-  "heroDesc": "ਮਜ਼ੇਦਾਰ ਖੇਡਾਂ ਅਤੇ ਵੀਡੀਓਜ਼ ਰਾਹੀਂ ਸੁਰੱਖਿਆ ਸਿੱਖੋ। ਸੁਰੱਖਿਆ ਹੀਰੋ ਬਣਨ ਵਾਲੇ ਵਿਦਿਆਰਥੀਆਂ ਨਾਲ ਜੁੜੋ!",
-  "startLearning": "▶️ 🚀 ਹੁਣੇ ਸਿੱਖਣਾ ਸ਼ੁਰੂ ਕਰੋ!",
-  "disasterTypesTitle": "🌪️ ਆਫ਼ਤ ਦੀਆਂ ਕਿਸਮਾਂ",
-  "disasterTypesDesc": "ਵੱਖ-ਵੱਖ ਆਫ਼ਤਾਂ ਬਾਰੇ ਜਾਣੋ ਅਤੇ ਸੁਰੱਖਿਅਤ ਕਿਵੇਂ ਰਹਿਣਾ ਹੈ! ਦਿਲਚਸਪ ਹਵਾਲਾ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਹਰੇਕ ਕਾਰਡ 'ਤੇ ਕਲਿੱਕ ਕਰੋ!",
-  "earthquake": "🏔️ ਭੂਚਾਲ",
-  "flood": "🌊 ਹੜ੍ਹ",
-  "fire": "🔥 ਅੱਗ",
-  "cyclone": "🌪️ ਚੱਕਰਵਾਤ",
-  "hoverToLearn": "ਹੋਰ ਜਾਣਨ ਲਈ ਹੋਵਰ ਕਰੋ!",
-  "earthquakeTip": "ਝੁਕੋ, ਢੱਕੋ, ਫੜੋ!",
-  "floodTip": "ਉੱਚੀ ਥਾਂ 'ਤੇ ਜਾਓ!",
-  "fireTip": "ਰੁਕੋ, ਝੁਕੋ, ਰੁੜੋ!",
-  "cycloneTip": "ਘਰ ਦੇ ਅੰਦਰ ਸੁਰੱਖਿਅਤ ਰਹੋ!",
-  "dosDontsTitle": "✅ ਕੀ ਕਰਨਾ ਹੈ ਅਤੇ ❌ ਕੀ ਨਹੀਂ ਕਰਨਾ ਹੈ",
-  "dosDontsDesc": "ਐਮਰਜੈਂਸੀ ਦੌਰਾਨ ਯਾਦ ਰੱਖਣ ਲਈ ਸਧਾਰਨ ਨਿਯਮ! 🧠💡",
-  "dosTitle": "✅ ਕਰੋ - ਸਮਾਰਟ ਐਕਸ਼ਨ!",
-  "dosItem1": "ਸ਼ਾਂਤ ਰਹੋ ਅਤੇ ਸਪਸ਼ਟ ਸੋਚੋ",
-  "dosItem2": "ਐਮਰਜੈਂਸੀ ਨੰਬਰਾਂ 'ਤੇ ਤੁਰੰਤ ਕਾਲ ਕਰੋ",
-  "dosItem3": "ਐਮਰਜੈਂਸੀ ਕਿੱਟ ਤਿਆਰ ਰੱਖੋ",
-  "dosItem4": "ਪਰਿਵਾਰਕ ਮੈਂਬਰਾਂ ਅਤੇ ਦੋਸਤਾਂ ਦੀ ਮਦਦ ਕਰੋ",
-  "dosItem5": "ਅਧਿਕਾਰਤ ਘੋਸ਼ਣਾਵਾਂ ਨੂੰ ਸੁਣੋ",
-  "dontsTitle": "❌ ਨਾ ਕਰੋ - ਇਹਨਾਂ ਤੋਂ ਬਚੋ!",
-  "dontsItem1": "ਘਬਰਾਓ ਜਾਂ ਇਧਰ-ਉਧਰ ਨਾ ਭੱਜੋ",
-  "dontsItem2": "ਐਮਰਜੈਂਸੀ ਦੌਰਾਨ ਲਿਫਟਾਂ ਦੀ ਵਰਤੋਂ ਨਾ ਕਰੋ",
-  "dontsItem3": "ਗਲਤ ਜਾਣਕਾਰੀ ਨਾ ਫੈਲਾਓ",
-  "dontsItem4": "ਨਿਕਾਸੀ ਦੇ ਆਦੇਸ਼ਾਂ ਨੂੰ ਨਜ਼ਰਅੰਦਾਜ਼ ਨਾ ਕਰੋ",
-  "dontsItem5": "ਬਿਜਲੀ ਦੀਆਂ ਤਾਰਾਂ ਨੂੰ ਨਾ ਛੂਹੋ",
-  "riskReportTitle": "📍 ਤੁਹਾਡੀ ਵਿਅਕਤੀਗਤ ਜੋਖਮ ਰਿਪੋਰਟ",
-  "riskReportDesc": "ਆਪਣੇ ਖੇਤਰ ਲਈ ਏਆਈ-ਸੰਚਾਲਿਤ ਆਫ਼ਤ ਜੋਖਮ ਮੁਲਾਂਕਣ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਆਪਣੇ ਸਕੂਲ ਦਾ ਪਿੰਨ ਕੋਡ ਦਰਜ ਕਰੋ।",
-  "pincodePlaceholder": "ਪਿੰਨ ਕੋਡ ਦਾਖਲ ਕਰੋ (ਜਿਵੇਂ, ਮੁੰਬਈ ਲਈ 400001)",
-  "analyzeRisk": "🔍 ਜੋਖਮ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਕਰੋ",
-  "riskPlaceholder": "ਤੁਹਾਡੀ ਵਿਅਕਤੀਗਤ ਰਿਪੋਰਟ ਇੱਥੇ ਦਿਖਾਈ ਦੇਵੇਗੀ।",
-  "analyzingRisk": "ਜੋਖਮ ਦੇ ਕਾਰਕਾਂ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...",
-  "riskMapTitle": "ਆਫ਼ਤ-ਜੋਖਮ ਹੌਟ-ਸਪਾਟਸ",
-  "riskMapDesc": "ਅਸਲ 2024-25 ਦੇ ਖ਼ਤਰੇ ਵਾਲੇ ਖੇਤਰਾਂ ਨੂੰ ਬੇਪਰਦ ਕਰਨ ਲਈ ਕਿਸੇ ਵੀ ਰੰਗਦਾਰ ਚੱਕਰ ਨੂੰ ਜ਼ੂਮ ਕਰੋ ਅਤੇ ਟੈਪ ਕਰੋ।",
-  "quizTitle": "🧠 ਆਪਣੇ ਸੁਰੱਖਿਆ ਗਿਆਨ ਦੀ ਜਾਂਚ ਕਰੋ!",
-  "quizDesc": "ਸਾਡਾ ਮਜ਼ੇਦਾਰ ਕਵਿਜ਼ ਲਓ ਅਤੇ ਇੱਕ ਪ੍ਰਮਾਣਿਤ ਸੁਰੱਖਿਆ ਹੀਰੋ ਬਣੋ! 🏆",
-  "interactiveQuizTitle": "ਇੰਟਰਐਕਟਿਵ ਸੁਰੱਖਿਆ ਕਵਿਜ਼",
-  "interactiveQuizDesc": "ਭੂਚਾਲ, ਅੱਗ, ਹੜ੍ਹ, ਅਤੇ ਹੋਰ ਬਹੁਤ ਕੁਝ ਬਾਰੇ ਸਵਾਲਾਂ ਦੇ ਜਵਾਬ ਦਿਓ! ਅੰਕ ਕਮਾਓ ਅਤੇ ਪ੍ਰਾਪਤੀ ਬੈਜ ਅਨਲੌਕ ਕਰੋ! 🏅",
-  "quizQuestions": "ਸਵਾਲ",
-  "quizDuration": "ਅੰਤਰਾਲ",
-  "quizCredits": "ਕ੍ਰੈਡਿਟ",
-  "startQuiz": "▶️ 🎮 ਕਵਿਜ਼ ਗੇਮ ਸ਼ੁਰੂ ਕਰੋ!",
-  "learningHubTitle": "📚 ਇੰਟਰਐਕਟਿਵ ਲਰਨਿੰਗ ਹੱਬ",
-  "learningHubDesc": "ਹੱਥੀਂ ਗਤੀਵਿਧੀਆਂ ਅਤੇ ਅਸਲ-ਸੰਸਾਰ ਦੇ ਦ੍ਰਿਸ਼ਾਂ ਰਾਹੀਂ ਆਫ਼ਤ ਸੁਰੱਖਿਆ ਵਿੱਚ ਮੁਹਾਰਤ ਹਾਸਲ ਕਰੋ! 🎯",
-  "scenarioTraining": "ਦ੍ਰਿਸ਼ ਸਿਖਲਾਈ",
-  "scenarioTrainingDesc": "ਇੱਕ ਸੁਰੱਖਿਅਤ ਵਰਚੁਅਲ ਵਾਤਾਵਰਣ ਵਿੱਚ ਅਸਲ ਐਮਰਜੈਂਸੀ ਸਥਿਤੀਆਂ ਦਾ ਅਭਿਆਸ ਕਰੋ",
-  "homeEmergency": "🏠 ਘਰੇਲੂ ਐਮਰਜੈਂਸੀ",
-  "schoolDrill": "🏫 ਸਕੂਲ ਡਰਿੱਲ",
-  "publicSpace": "🌆 ਜਨਤਕ ਥਾਂ",
-  "statusComplete": "✓ ਪੂਰਾ",
-  "statusLearn": "📚 ਸਿੱਖੋ",
-  "statusLocked": "🔒 ਲਾਕ",
-  "startScenario": "▶️ ਦ੍ਰਿਸ਼ ਸ਼ੁਰੂ ਕਰੋ",
-  "safetySkills": "ਸੁਰੱਖਿਆ ਹੁਨਰ",
-  "safetySkillsDesc": "ਕਦਮ-ਦਰ-ਕਦਮ ਜ਼ਰੂਰੀ ਜੀਵਨ-ਰੱਖਿਅਕ ਤਕਨੀਕਾਂ ਸਿੱਖੋ",
-  "firstAid": "🩹 ਮੁੱਢਲੀ ਸਹਾਇਤਾ ਦੀਆਂ ਮੂਲ ਗੱਲਾਂ",
-  "fireSafety": "🔥 ਅੱਗ ਸੁਰੱਖਿਆ",
-  "cprTraining": "💨 ਸੀਪੀਆਰ ਸਿਖਲਾਈ",
-  "continueLearning": "ਸਿੱਖਣਾ ਜਾਰੀ ਰੱਖੋ",
-  "virtualDrills": "ਵਰਚੁਅਲ ਡਰਿੱਲਾਂ",
-  "virtualDrillsDesc": "ਸਮਾਂਬੱਧ ਚੁਣੌਤੀਆਂ ਨਾਲ ਐਮਰਜੈਂਸੀ ਪ੍ਰਕਿਰਿਆਵਾਂ ਦਾ ਅਭਿਆਸ ਕਰੋ",
-  "evacuationDrill": "🏃‍♂️ ਨਿਕਾਸੀ ਡਰਿੱਲ",
-  "emergencyCall": "📞 ਐਮਰਜੈਂਸੀ ਕਾਲ",
-  "kitAssembly": "🎒 ਕਿੱਟ ਅਸੈਂਬਲੀ",
-  "startDrill": "ਡਰਿੱਲ ਸ਼ੁਰੂ ਕਰੋ",
-  "awarenessVideosTitle": "📺 ਜਾਗਰੂਕਤਾ ਵੀਡੀਓਜ਼",
-  "awarenessVideosDesc": "ਆਫ਼ਤ ਸੁਰੱਖਿਆ ਸਿੱਖਣ ਲਈ ਮਜ਼ੇਦਾਰ ਅਤੇ ਵਿਦਿਅਕ ਵੀਡੀਓਜ਼ ਦੇਖੋ! 🎬✨",
-  "learningProgressTitle": "ਤੁਹਾਡੀ ਸਿੱਖਣ ਦੀ ਪ੍ਰਗਤੀ",
-  "learningProgressDesc": "ਇੱਕ ਸੁਰੱਖਿਆ ਹੀਰੋ ਬਣਨ ਲਈ ਆਪਣੀ ਯਾਤਰਾ ਨੂੰ ਟਰੈਕ ਕਰੋ!",
-  "modulesCompleted": "ਮੌਡਿਊਲ ਪੂਰੇ ਹੋਏ",
-  "badgesEarned": "ਬੈਜ ਕਮਾਏ",
-  "pointsScored": "ਅੰਕ ਪ੍ਰਾਪਤ ਕੀਤੇ",
-  "contactUs": "📧 ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ",
-  "email": "📧 ਈਮੇਲ",
-  "whatsapp": "📱 ਵਟਸਐਪ",
-  "website": "🌐 ਵੈੱਬਸਾਈਟ",
-  "aboutSafetyFirst": "🎓 ਸੇਫਟੀਫਸਟ ਬਾਰੇ",
-  "aboutDesc": "ਇੰਟਰਐਕਟਿਵ ਸਿੱਖਣ ਦੇ ਤਜ਼ਰਬਿਆਂ ਰਾਹੀਂ ਦੁਨੀਆ ਭਰ ਦੇ ਵਿਦਿਆਰਥੀਆਂ ਲਈ ਆਫ਼ਤ ਦੀ ਤਿਆਰੀ ਨੂੰ ਮਜ਼ੇਦਾਰ ਅਤੇ ਪਹੁੰਚਯੋਗ ਬਣਾਉਣਾ।",
-  "footerText": "© 2025 ਸੇਫਟੀਫਸਟ ਐਜੂਕੇਸ਼ਨ। ਦੁਨੀਆ ਭਰ ਦੇ ਵਿਦਿਆਰਥੀਆਂ ਲਈ ਆਫ਼ਤ ਦੀ ਤਿਆਰੀ ਨੂੰ ਮਜ਼ੇਦਾਰ ਬਣਾਉਣਾ! 🌍✨",
-  "chatbotTitle": "🤖 ਏਆਈ ਚੈਟਬੋਟ",
-  "chatbotWelcome": "ਸਤਿ ਸ਼੍ਰੀ ਅਕਾਲ! 👋 ਸੁਰੱਖਿਆ ਬਾਰੇ ਕੁਝ ਵੀ ਪੁੱਛੋ 🚀",
-  "chatbotPlaceholder": "ਮੈਨੂੰ ਕੁਝ ਵੀ ਪੁੱਛੋ...",
-  "chatbotSend": "ਭੇਜੋ",
-  "helplineTitle": "🚨 ਐਮਰਜੈਂਸੀ ਨੰਬਰ",
-  "helplineFire": "🔥 ਅੱਗ",
-  "helplineAmbulance": "🚑 ਐਂਬੂਲੈਂਸ",
-  "helplineNDRF": "🌪️ ਐਨਡੀਆਰਐਫ",
-  "helplinePolice": "🚓 ਪੁਲਿਸ",
-  "quizModalTitle": "🧠 ਆਫ਼ਤ ਤਿਆਰੀ ਕਵਿਜ਼",
-  "quizQuestionCounter": "ਸਵਾਲ {x} / {y}",
-  "quizScoreLabel": "ਸਕੋਰ:",
-  "quizNext": "ਅਗਲਾ →",
-  "quizFinish": "ਕਵਿਜ਼ ਖਤਮ ਕਰੋ",
-  "quizTryAgain": "🔄 ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ",
-  "quizDone": "✅ ਹੋ ਗਿਆ",
-  "quizBackToLearning": "⬅ ਸਿੱਖਣ 'ਤੇ ਵਾਪਸ ਜਾਓ",
-  "createAccountTitle": "ਖਾਤਾ ਬਣਾਓ",
-  "fullNamePlaceholder": "ਪੂਰਾ ਨਾਂਮ",
-  "emailAddressPlaceholder": "ਈਮੇਲ ਪਤਾ",
-  "passwordPlaceholder": "ਪਾਸਵਰਡ",
-  "alreadyHaveAccount": "ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਖਾਤਾ ਹੈ?",
-  "loginLink": "ਲਾਗਿਨ ਕਰੋ",
-  "welcomeBackTitle": "ਜੀ ਆਇਆਂ ਨੂੰ!",
-  "newToSafetyFirst": "ਸੇਫਟੀਫਸਟ 'ਤੇ ਨਵੇਂ ਹੋ?",
-  "signupLink": "ਸਾਈਨ ਅੱਪ ਕਰੋ",
-  "quizResults": {
-    "hero": { "title": "🏆 ਸੁਰੱਖਿਆ ਹੀਰੋ!", "message": "ਸ਼ਾਨਦਾਰ! ਤੁਸੀਂ ਇੱਕ ਸੱਚੇ ਆਫ਼ਤ ਤਿਆਰੀ ਚੈਂਪੀਅਨ ਹੋ!" },
-    "star": { "title": "🌟 ਸੁਰੱਖਿਆ ਸਟਾਰ!", "message": "ਬਹੁਤ ਵਧੀਆ! ਤੁਹਾਡੇ ਕੋਲ ਸ਼ਾਨਦਾਰ ਸੁਰੱਖਿਆ ਗਿਆਨ ਹੈ!" },
-    "learner": { "title": "🎯 ਸੁਰੱਖਿਆ ਸਿੱਖਣ ਵਾਲੇ!", "message": "ਚੰਗਾ ਕੰਮ! ਇੱਕ ਸੁਰੱਖਿਆ ਮਾਹਰ ਬਣਨ ਲਈ ਸਿੱਖਦੇ ਰਹੋ!" },
-    "beginner": { "title": "🌱 ਸੁਰੱਖਿਆ ਸ਼ੁਰੂਆਤ ਕਰਨ ਵਾਲੇ!", "message": "ਅਭਿਆਸ ਕਰਦੇ ਰਹੋ! ਹਰ ਮਾਹਰ ਕਦੇ ਇੱਕ ਸ਼ੁਰੂਆਤ ਕਰਨ ਵਾਲਾ ਸੀ!" }
-  },
-  "quizData": [
-    { "question": "ਭੂਚਾਲ ਦੌਰਾਨ ਸਭ ਤੋਂ ਪਹਿਲਾਂ ਕੀ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ?", "options": ["ਤੁਰੰਤ ਬਾਹਰ ਭੱਜੋ", "ਝੁਕੋ, ਢੱਕੋ ਅਤੇ ਫੜੋ", "ਦਰਵਾਜ਼ੇ ਵਿੱਚ ਖੜ੍ਹੇ ਹੋਵੋ", "ਮਦਦ ਲਈ ਬੁਲਾਓ"], "correct": 1 },
-    { "question": "ਐਮਰਜੈਂਸੀ ਲਈ ਪ੍ਰਤੀ ਵਿਅਕਤੀ ਪ੍ਰਤੀ ਦਿਨ ਕਿੰਨਾ ਪਾਣੀ ਸਟੋਰ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ?", "options": ["੧/੨ ਗੈਲਨ", "੧ ਗੈਲਨ", "੨ ਗੈਲਨ", "੩ ਗੈਲਨ"], "correct": 1 },
-    { "question": "ਭਾਰਤ ਵਿੱਚ ਫਾਇਰ ਸਰਵਿਸਿਜ਼ ਲਈ ਐਮਰਜੈਂਸੀ ਨੰਬਰ ਕੀ ਹੈ?", "options": ["੧੦੦", "੧੦੧", "੧੦੨", "੧੦੮"], "correct": 1 },
-    { "question": "ਹੜ੍ਹ ਦੇ ਦੌਰਾਨ, ਤੁਹਾਨੂੰ ਚਾਹੀਦਾ ਹੈ:", "options": ["ਹੜ੍ਹ ਵਾਲੀਆਂ ਸੜਕਾਂ ਰਾਹੀਂ ਗੱਡੀ ਚਲਾਓ", "ਉੱਚੀ ਜ਼ਮੀਨ 'ਤੇ ਜਾਓ", "ਬੇਸਮੈਂਟ ਵਿੱਚ ਰਹੋ", "ਨੀਵੇਂ ਖੇਤਰਾਂ ਵਿੱਚ ਬਚਾਅ ਦੀ ਉਡੀਕ ਕਰੋ"], "correct": 1 },
-    { "question": "ਇੱਕ ਐਮਰਜੈਂਸੀ ਕਿੱਟ ਵਿੱਚ ਕਿਹੜੀ ਚੀਜ਼ ਸਭ ਤੋਂ ਮਹੱਤਵਪੂਰਨ ਹੈ?", "options": ["ਖੇਡਾਂ ਅਤੇ ਖਿਡੌਣੇ", "ਪਾਣੀ ਅਤੇ ਭੋਜਨ", "ਮਹਿੰਗੇ ਗਹਿਣੇ", "ਕਿਤਾਬਾਂ"], "correct": 1 }
-  ]
+  "pageTitle": "SafetyFirst - Disaster Preparedness for Students",
+  "aiChatbotTitle": "AI Chatbot",
+  "aiChatbotHeader": "🤖 AI Chatbot",
+  "chatbotWelcome": "Hello! 👋 Ask me anything about safety 🚀",
+  "chatbotPlaceholder": "Ask me anything...",
+  "sendButton": "Send",
+  "emergencyNumbers": "🚨 Emergency Numbers",
+  "fire": "🔥 Fire",
+  "ambulance": "🚑 Ambulance",
+  "ndrf": "🌪️ NDRF",
+  "police": "🚓 Police",
+  "close": "Close",
+  "disasterHighlights": "⚡ Disaster Highlights:",
+  "loadingDisasters": "Loading latest disasters...",
+  "readFullArticle": "🔗 Read Full Article",
+  "brandText": "SafetyFirst",
+  "navHome": "🏠 Home",
+  "navDonts": "Do's & Don'ts",
+  "helpline": "📞 Helpline",
+  "quiz": "🧠 Quiz",
+  "videos": "📺 Videos",
+  "contact": "📧 Contact",
+  "admin": "📊 Admin",
+  "langEnglish": "English",
+  "langHindi": "हिन्दी",
+  "langMarathi": "मराठी",
+  "langPunjabi": "ਪੰਜਾਬੀ",
+  "langKannada": "ಕನ್ನಡ",
+  "langTamil": "தமிழ்",
+  "logout": "logout",
+  "forStudents": "✨ 🎓 For Students Like You!",
+  "beReady": "Be Ready,",
+  "staySafe": "Stay Safe!",
+  "heroDescription": "Learn safety through fun games and videos. Join students becoming safety heroes!",
+  "startLearning": "▶️ 🚀 Start Learning Now!",
+  "disasterTypes": "🌪️ Disaster Types",
+  "disasterTypesDescription": "Learn about different disasters and how to stay safe! Click on each card to get exciting quote!",
+  "earthquake": "🏔️ Earthquake",
+  "hoverToLearnMore": "Hover to learn more!",
+  "earthquakeTip": "Drop, Cover, Hold!",
+  "flood": "🌊 Flood",
+  "floodTip": "Move to higher ground!",
+  "fireTip": "Stop, Drop, Roll!",
+  "cyclone": "🌪️ Cyclone",
+  "cycloneTip": "Stay indoors safely!",
+  "dosAndDonts": "✅ Do's & ❌ Don'ts",
+  "dosAndDontsDescription": "Simple rules to remember during emergencies! 🧠💡",
+  "dosTitle": "✅ DO's - Smart Actions!",
+  "do1": "Stay calm and think clearly",
+  "do2": "Call emergency numbers immediately",
+  "do3": "Keep emergency kit ready",
+  "do4": "Help family members and friends",
+  "do5": "Listen to official announcements",
+  "dontsTitle": "❌ DON'Ts - Avoid These!",
+  "dont1": "Don't panic or run around",
+  "dont2": "Don't use elevators during emergencies",
+  "dont3": "Don't spread false information",
+  "dont4": "Don't ignore evacuation orders",
+  "dont5": "Don't touch electrical wires",
+  "riskReportTitle": "📍 Your Personalized Risk Report",
+  "riskReportDescription": "Enter your school's pincode to get an AI-powered disaster risk assessment for your area.",
+  "pincodePlaceholder": "Enter Pincode (e.g., 400001 for Mumbai)",
+  "analyzeRisk": "🔍 Analyze Risk",
+  "riskPlaceholder": "Your personalized report will appear here.",
+  "analyzingRisk": "Analyzing risk factors...",
+  "riskHotspots": "Disaster-Risk Hot-Spots",
+  "riskHotspotsDescription": "Zoom & tap any coloured circle to uncover real 2024-25 danger zones.",
+  "extremeRisk": "🔥 Extreme",
+  "highRisk": "⚠️ High",
+  "moderateRisk": "🟡 Moderate",
+  "lowRisk": "✅ Low",
+  "spotYourCity": "👀 Spot your city → Screenshot → Share with #SafetyFirstHero",
+  "quizTitle": "🧠 Test Your Safety Knowledge!",
+  "quizDescription": "Take our fun quiz and become a certified Safety Hero! 🏆",
+  "interactiveQuiz": "Interactive Safety Quiz",
+  "interactiveQuizDescription": "Answer questions about earthquakes, fires, floods, and more! Earn points and unlock achievement badges! 🏅",
+  "questions": "Questions",
+  "duration": "Duration",
+  "credits": "Credits",
+  "startQuizGame": "▶️ 🎮 Start Quiz Game!",
+  "disasterPreparednessQuiz": "🧠 Disaster Preparedness Quiz",
+  "questionCounter": "Question 1 of 20",
+  "tryAgain": "🔄 Try Again",
+  "done": "✅ Done",
+  "backToLearning": "⬅ Back to Learning",
+  "previous": "← Previous",
+  "score": "Score:",
+  "next": "Next →",
+  "learningHubTitle": "📚 Interactive Learning Hub",
+  "learningHubDescription": "Master disaster safety through hands-on activities and real-world scenarios! 🎯",
+  "scenarioTraining": "Scenario Training",
+  "scenarioTrainingDescription": "Practice real emergency situations in a safe virtual environment",
+  "homeEmergency": "🏠 Home Emergency",
+  "complete": "✓ Complete",
+  "schoolDrill": "🏫 School Drill",
+  "learn": "📚 Learn",
+  "publicSpace": "🌆 Public Space",
+  "locked": "🔒 Locked",
+  "startScenario": "▶️ Start Scenario",
+  "safetySkills": "Safety Skills",
+  "safetySkillsDescription": "Learn essential life-saving techniques step by step",
+  "firstAidBasics": "🩹 First Aid Basics",
+  "fireSafety": "🔥 Fire Safety",
+  "cprTraining": "💨 CPR Training",
+  "continueLearning": "Continue Learning",
+  "virtualDrills": "Virtual Drills",
+  "virtualDrillsDescription": "Practice emergency procedures with timed challenges",
+  "evacuationDrill": "🏃‍♂️ Evacuation Drill",
+  "emergencyCall": "📞 Emergency Call",
+  "kitAssembly": "🎒 Kit Assembly",
+  "startDrill": "Start Drill",
+  "safetySkillsTraining": "🎥 Safety Skills Training",
+  "back": "⬅ Back",
+  "virtualEmergencyDrill": "🚨 Virtual Emergency Drill",
+  "timeLeft": "⏱️ Time left: ",
+  "backToHub": "⬅ Back to Hub",
+  "choosePublicSpaceEmergency": "Choose a Public Space Emergency",
+  "earthquakeSafetyHindiAnimation": "🌏 Earthquake Safety (Hindi Animation)",
+  "earthquakeSafetyHindiAnimationDescription": "An engaging Indian animated short that explains how to prepare and stay safe during earthquakes.",
+  "earthquakeSafetyForKids": "🌏 Earthquake Safety for Kids (Dr. Binocs)",
+  "earthquakeSafetyForKidsDescription": "Hindi animated explanation for children on what to do in case of an earthquake.",
+  "roadSafetyAwareness": "🛣️ Road Safety Awareness (Indian PSU PSA)",
+  "roadSafetyAwarenessDescription": "A classic animated road safety campaign by Indian Oil Corporation.",
+  "hindiEarthquakeDrill": "🌏 Hindi Earthquake Drill",
+  "hindiEarthquakeDrillDescription": "A humorous yet instructive Hindi animation teaching earthquake safety rules.",
+  "awarenessVideos": "📺 Awareness Videos",
+  "awarenessVideosDescription": "Watch fun and educational videos to learn disaster safety! 🎬✨",
+  "prepareForEarthquake": "🏔️ How to Prepare for an Earthquake",
+  "sanjoseFireDept": "San José Fire Department - Official Guide",
+  "earthquakeResponseTech": "🚨 Earthquake Response Technology",
+  "lafd": "LAFD - Experience and Technology for Preparedness",
+  "preparednessAgainstFloods": "🌊 Preparedness against Floods",
+  "emergencyResponseTips": "Emergency Response and Safety Tips",
+  "preparednessAgainstCyclone": "🌪️ Preparedness against Cyclone",
+  "realStormImpact": "Real Storm Impact and Community Response",
+  "virginiaHurricanePlan": "🌀 Virginia's Hurricane Preparedness Plan 2024",
+  "stateLevelPlanning": "State-Level Emergency Planning",
+  "emergencyKitEssentials": "🎒 Emergency Kit Essentials",
+  "howToBuildKit": "How to Build a Disaster Kit",
+  "stopDropRoll": "Stop, Drop, Roll - Fire Safety Tips",
+  "basicFirstAid": "🩹 Basic First Aid",
+  "simpleFirstAid": "Simple First Aid Techniques",
+  "learningProgress": "Your Learning Progress",
+  "learningProgressDescription": "Track your journey to becoming a Safety Hero!",
+  "modulesCompleted": "Modules<br>Completed",
+  "badgesEarned": "Badges<br>Earned",
+  "pointsScored": "Points<br>Scored",
+  "contactUs": "📧 Contact Us",
+  "email": "📧 Email",
+  "whatsapp": "📱 WhatsApp",
+  "website": "🌐 Website",
+  "aboutSafetyFirst": "🎓 About SafetyFirst",
+  "aboutSafetyFirstDescription": "Making disaster preparedness fun and accessible for students worldwide through interactive learning experiences.",
+  "footerCredit": "© 2025 SafetyFirst Education. Making disaster preparedness fun for students worldwide! 🌍✨",
+  "cloudburstRudraprayag": "🗓️ 2025: Cloudburst Strikes Rudraprayag",
+  "landslideVaishnoDevi": "🗓️ 2025: Landslide Near Vaishno Devi Pilgrimage Route Kills 30+",
+  "flashFloodsKashmir": "🗓️ 2025: Flash Floods Devastate Kashmir",
+  "assamFloods": "🗓️ 2025: Assam Floods"
 }
