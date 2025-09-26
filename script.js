@@ -505,35 +505,41 @@ const GEMINI_API_KEY = "AIzaSyDW2H6Gp6cuFR5EBj1scri9vbplkPWR9iY";  // Replace 'Y
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 async function sendMessage() {
-  const input = document.getElementById("chat-input");
+  const input  = document.getElementById('chat-input');
   const message = input.value.trim();
   if (!message) return;
 
-  addMessage("user", message);
-  input.value = "";
+  addMessage('user', message);
+  input.value = '';
 
-  addMessage("bot", "⌛ Thinking...");
+  addMessage('bot', '⌛ Thinking...');
 
-  fetch(GEMINI_API_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: message }] }]
-    })
-  })
-    .then(res => res.json())
-    .then(data => {
-     console.log("📦 FULL response:", JSON.stringify(data, null, 2));
-    // ✅ You'll see this in Replit console
-     const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "⚠️ Gemini returned no answer.";
-    updateLastBotMessage(reply);
-  })
-    .catch(err => {
-      console.error("Gemini API Error:", err);
-      updateLastBotMessage("❌ Failed to reach Gemini API.");
+  try {
+    const res = await fetch(GEMINI_API_URL, {
+      method : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body   : JSON.stringify({ contents: [{ parts: [{ text: message }] }] })
     });
+    const data = await res.json();
+    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text
+               || '⚠️ Gemini returned no answer.';
+    updateLastBotMessage(reply);
+  } catch (err) {
+    console.error('Gemini API Error:', err);
+    updateLastBotMessage('❌ Failed to reach Gemini API.');
+  }
 }
 
+/* ========== 3.  Attach Enter listener once DOM is ready ========== */
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('chat-input');
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();      // stop newline
+      sendMessage();           // call the function above
+    }
+  });
+});
 function addMessage(sender, text) {
   const chat = document.getElementById("chat-messages");
   const div = document.createElement("div");

@@ -284,6 +284,22 @@
     document.getElementById('showLoginLink').addEventListener('click', showLogin);
     document.getElementById('showSignupLink').addEventListener('click', showSignup);
 
+    // Listen for Enter key press in signup form
+    document.getElementById("signupName").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            signup();
+        }
+    });
+    document.getElementById("signupEmail").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            signup();
+        }
+    });
+    document.getElementById("signupPassword").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            signup();
+        }
+    });
     // FORCE LOGIN FIRST
     auth.onAuthStateChanged(user => {
       if (user) {
@@ -291,6 +307,11 @@
         window.location.href = "index1.html";
       }
     });
+    // Allow Enter key to trigger login
+document.getElementById("loginEmail")
+        .addEventListener("keydown", e => { if (e.key === "Enter") login(); });
+document.getElementById("loginPassword")
+        .addEventListener("keydown", e => { if (e.key === "Enter") login(); });
   </script>
 </body>
 </html>
