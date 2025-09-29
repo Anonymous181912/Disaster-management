@@ -236,39 +236,62 @@ function updateNavigationButtons() {
   }
 }
 
-function showResults() {
-  document.getElementById("question-container").style.display = "none"
-  document.getElementById("result-container").style.display = "block"
+async function showResults() {
+  document.getElementById("question-container").style.display = "none";
+  document.getElementById("result-container").style.display = "block";
 
-  const percentage = Math.round((score / quizData.length) * 100)
-  document.getElementById("final-score").textContent = score
+  const percentage = Math.round((score / quizData.length) * 100);
+  document.getElementById("final-score").textContent = score;
 
-  let title, message, icon
+  let title, message, icon;
 
   if (percentage >= 90) {
-    title = "🏆 Safety Hero!"
-    message = "Outstanding! You're a true disaster preparedness champion!"
-    icon = "🏆"
+    title = "🏆 Safety Hero!";
+    message = "Outstanding! You're a true disaster preparedness champion!";
+    icon = "🏆";
   } else if (percentage >= 75) {
-    title = "🌟 Safety Star!"
-    message = "Great job! You have excellent safety knowledge!"
-    icon = "⭐"
+    title = "🌟 Safety Star!";
+    message = "Great job! You have excellent safety knowledge!";
+    icon = "⭐";
   } else if (percentage >= 60) {
-    title = "🎯 Safety Learner!"
-    message = "Good work! Keep learning to become a safety expert!"
-    icon = "📚"
+    title = "🎯 Safety Learner!";
+    message = "Good work! Keep learning to become a safety expert!";
+    icon = "📚";
   } else {
-    title = "🌱 Safety Beginner!"
-    message = "Keep practicing! Every expert was once a beginner!"
-    icon = "🌱"
+    title = "🌱 Safety Beginner!";
+    message = "Keep practicing! Every expert was once a beginner!";
+    icon = "🌱";
   }
 
-  document.getElementById("result-title").textContent = title
-  document.getElementById("result-message").textContent = message
-  document.querySelector(".result-icon").textContent = icon
+  document.getElementById("result-title").textContent = title;
+  document.getElementById("result-message").textContent = message;
+  document.querySelector(".result-icon").textContent = icon;
 
   // Hide navigation buttons
-  document.querySelector(".quiz-footer").style.display = "none"
+  document.querySelector(".quiz-footer").style.display = "none";
+
+  // --- Save quiz results to Firestore ---
+  const user = auth.currentUser;
+  if (user && db) {
+    try {
+      const quizResultRef = db.collection("quizResults").doc();
+      await quizResultRef.set({
+        userId: user.uid,
+        score: score,
+        totalQuestions: quizData.length,
+        percentage: percentage,
+        date: new Date()
+      });
+      console.log("Quiz result saved to Firestore.");
+      updateUserProgress({
+        quizScore: score,
+        quizPercentage: percentage,
+        lastQuizDate: new Date()
+      });
+    } catch (error) {
+      console.error("Error saving quiz result: ", error);
+    }
+  }
 }
 
 function restartQuiz() {
@@ -773,6 +796,19 @@ function toggleContent(card) {
   text.classList.toggle("hidden");
   icon.textContent = text.classList.contains("hidden") ? "➕" : "➖";
 }
+async function updateUserProgress(progressData) {
+  const user = auth.currentUser;
+  if (user && db) {
+    const userProgressRef = db.collection("learningProgress").doc(user.uid);
+    try {
+      await userProgressRef.set(progressData, { merge: true });
+      console.log("User progress updated in Firestore.");
+    } catch (error) {
+      console.error("Error updating user progress: ", error);
+    }
+  }
+}
+
 function startScenario() {
   // 1. Show the hidden Public Space section
   document.getElementById("public-space").classList.remove("hidden");
@@ -789,6 +825,7 @@ function startScenario() {
       statusSpan.classList.add("active");
     }
   }
+  updateUserProgress({ scenario: "started" });
 }
 // Expand/collapse details inside cards
 function toggleContent(card) {
@@ -811,6 +848,7 @@ function openSafetySkills() {
   if (learningGrid) {
     learningGrid.style.display = "none"; // hide cards
   }
+  updateUserProgress({ safetySkills: "started" });
 }
 
 function closeSafetySkills() {
@@ -930,6 +968,7 @@ function startDrill() {
   drillQ = 0;
   drillPts = 0;
   loadDrillQuestion();
+  updateUserProgress({ drill: "started" });
 }
 
 function closeDrills() {
@@ -1023,6 +1062,7 @@ auth.onAuthStateChanged((user) => {
     window.location.replace("login.html");
   } else {
     console.log("User is logged in:", user.email);
+    loadUserProgress(); // Fetch and display user-specific progress
 
     // ✅ Check admin status from localStorage
     const isAdmin = localStorage.getItem("isAdmin") === "true";
@@ -1037,6 +1077,78 @@ auth.onAuthStateChanged((user) => {
     }
   }
 });
+
+async function loadUserProgress() {
+  const user = auth.currentUser;
+  if (user && db) {
+    const userProgressRef = db.collection("learningProgress").doc(user.uid);
+    try {
+      const doc = await userProgressRef.get();
+      if (doc.exists) {
+        updateProgressUI(doc.data());
+      } else {
+        console.log("No progress found for this user.");
+        // Initialize with default empty state
+        updateProgressUI({});
+      }
+    } catch (error) {
+      console.error("Error loading user progress:", error);
+    }
+  }
+}
+
+function updateProgressUI(progress) {
+  // --- Update "Your Learning Progress" Bar ---
+  let modulesCompleted = 0;
+  if (progress.quizScore !== undefined) modulesCompleted++;
+  if (progress.scenario) modulesCompleted++;
+  if (progress.safetySkills) modulesCompleted++;
+  if (progress.drill) modulesCompleted++;
+
+  const totalModules = 4; // Quiz, Scenario, Skills, Drills
+  const overallPercentage = Math.round((modulesCompleted / totalModules) * 100);
+  const pointsScored = progress.quizScore || 0;
+  const badgesEarned = Math.floor(modulesCompleted / 2); // Example: 1 badge for every 2 modules
+
+  // Update circular progress bar
+  const circle = document.querySelector('.hz-bar');
+  if (circle) {
+    const circumference = circle.r.baseVal.value * 2 * Math.PI;
+    const offset = circumference - (overallPercentage / 100) * circumference;
+    circle.style.strokeDashoffset = offset;
+  }
+
+  // Update text percentages and stats
+  const percentText = document.querySelector('.hz-percent');
+  if (percentText) percentText.textContent = `${overallPercentage}%`;
+
+  const stats = document.querySelectorAll('.hz-item .hz-num');
+  if (stats.length === 3) {
+    stats[0].textContent = modulesCompleted;
+    stats[1].textContent = badgesEarned;
+    stats[2].textContent = pointsScored;
+  }
+
+  // --- Update "Interactive Learning Hub" ---
+  if (progress.scenario) {
+    const scenarioItem = document.querySelector('.learning-card.scenario .progress-item.locked');
+    if(scenarioItem) {
+      scenarioItem.classList.remove('locked');
+      scenarioItem.classList.add('completed');
+      scenarioItem.querySelector('.status').textContent = '✓ Completed';
+    }
+  }
+
+  if (progress.quizPercentage !== undefined) {
+      const quizStat = document.querySelector('.quiz-stats .stat-number');
+      if(quizStat) {
+          const completedLabel = document.createElement('span');
+          completedLabel.textContent = `Best: ${progress.quizPercentage}%`;
+          completedLabel.style.color = 'green';
+          quizStat.parentElement.replaceWith(completedLabel);
+      }
+  }
+}
 
 
 // Logout function (global)

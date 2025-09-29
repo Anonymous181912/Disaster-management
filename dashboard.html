@@ -138,276 +138,143 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
   <script>
-    // Comprehensive dashboard translations
-    const dashboardTranslations = {
-      en: {
-        dashboardTitle: "SafetyFirst – Admin Dashboard",
-        backToSite: "← Back to Site",
-        totalStudents: "Total Students",
-        avgPreparedness: "Avg Preparedness",
-        drillsThisMonth: "Drills This Month",
-        lowestClass: "Lowest Class",
-        preparednessScores: "Preparedness Scores",
-        drillParticipation: "Drill Participation",
-        classReadinessOverview: "Class Readiness Overview",
-        name: "Name",
-        class: "Class",
-        score: "Score",
-        lastDrill: "Last Drill",
-        students: "Students",
-        attended: "Attended",
-        percentage: "%",
-        readinessLabel: "Readiness %"
-      },
-      hi: {
-        dashboardTitle: "सेफ्टीफर्स्ट – व्यवस्थापक डैशबोर्ड",
-        backToSite: "← साइट पर वापस जाएं",
-        totalStudents: "कुल छात्र",
-        avgPreparedness: "औसत तैयारी",
-        drillsThisMonth: "इस महीने की ड्रिलें",
-        lowestClass: "सबसे कमजोर कक्षा",
-        preparednessScores: "तैयारी स्कोर",
-        drillParticipation: "ड्रिल भागीदारी",
-        classReadinessOverview: "कक्षा तत्परता अवलोकन",
-        name: "नाम",
-        class: "कक्षा",
-        score: "स्कोर",
-        lastDrill: "अंतिम ड्रिल",
-        students: "छात्र",
-        attended: "उपस्थित",
-        percentage: "%",
-        readinessLabel: "तत्परता %"
-      },
-      mr: {
-        dashboardTitle: "सेफ्टीफर्स्ट – प्रशासक डॅशबोर्ड",
-        backToSite: "← साइटवर परत जा",
-        totalStudents: "एकूण विद्यार्थी",
-        avgPreparedness: "सरासरी तयारी",
-        drillsThisMonth: "या महिन्यातील ड्रिल्स",
-        lowestClass: "सर्वात कमकुवत वर्ग",
-        preparednessScores: "तयारी गुण",
-        drillParticipation: "ड्रील सहभाग",
-        classReadinessOverview: "वर्ग तयारी आढावा",
-        name: "नाव",
-        class: "वर्ग",
-        score: "गुण",
-        lastDrill: "शेवटची ड्रिल",
-        students: "विद्यार्थी",
-        attended: "उपस्थित",
-        percentage: "%",
-        readinessLabel: "तयारी %"
-      },
-      pa: {
-        dashboardTitle: "ਸੇਫਟੀਫਸਟ – ਐਡਮਿਨ ਡੈਸ਼ਬੋਰਡ",
-        backToSite: "← ਸਾਈਟ ਤੇ ਵਾਪਸ ਜਾਓ",
-        totalStudents: "ਕੁੱਲ ਵਿਦਿਆਰਥੀ",
-        avgPreparedness: "ਔਸਤ ਤਿਆਰੀ",
-        drillsThisMonth: "ਇਸ ਮਹੀਨੇ ਦੀਆਂ ਡ੍ਰਿਲਾਂ",
-        lowestClass: "ਸਭ ਤੋਂ ਕਮਜ਼ੋਰ ਕਲਾਸ",
-        preparednessScores: "ਤਿਆਰੀ ਦੇ ਅੰਕ",
-        drillParticipation: "ਡ੍ਰਿਲ ਭਾਗੀਦਾਰੀ",
-        classReadinessOverview: "ਕਲਾਸ ਤਿਆਰੀ ਅਵਲੋਕਨ",
-        name: "ਨਾਮ",
-        class: "ਕਲਾਸ",
-        score: "ਅੰਕ",
-        lastDrill: "ਆਖਰੀ ਡ੍ਰਿਲ",
-        students: "ਵਿਦਿਆਰਥੀ",
-        attended: "ਹਾਜ਼ਰ",
-        percentage: "%",
-        readinessLabel: "ਤਿਆਰੀ %"
-      },
-      kn: {
-        dashboardTitle: "ಸೇಫ್ಟಿಫಸ್ಟ್ – ನಿರ್ವಾಹಕ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
-        backToSite: "← ಸೈಟ್‌ಗೆ ಹಿಂತಿರುಗಿ",
-        totalStudents: "ಒಟ್ಟು ವಿದ್ಯಾರ್ಥಿಗಳು",
-        avgPreparedness: "ಸರಾಸರಿ ಸಿದ್ಧತೆ",
-        drillsThisMonth: "ಈ ತಿಂಗಳ ಡ್ರಿಲ್‌ಗಳು",
-        lowestClass: "ಕನಿಷ್ಠ ವರ್ಗ",
-        preparednessScores: "ಸಿದ್ಧತೆ ಸ್ಕೋರುಗಳು",
-        drillParticipation: "ಡ್ರಿಲ್ ಭಾಗವಹಿಸುವಿಕೆ",
-        classReadinessOverview: "ವರ್ಗ ಸಿದ್ಧತೆ ಅವಲೋಕನ",
-        name: "ಹೆಸರು",
-        class: "ವರ್ಗ",
-        score: "ಸ್ಕೋರು",
-        lastDrill: "ಕೊನೆಯ ಡ್ರಿಲ್",
-        students: "ವಿದ್ಯಾರ್ಥಿಗಳು",
-        attended: "ಹಾಜರಾದರು",
-        percentage: "%",
-        readinessLabel: "ಸಿದ್ಧತೆ %"
-      },
-      ta: {
-        dashboardTitle: "சேஃப்டிஃபர்ஸ்ட் – நிர்வாக டாஷ்போர்டு",
-        backToSite: "← தளத்திற்கு திரும்பு",
-        totalStudents: "மொத்த மாணவர்கள்",
-        avgPreparedness: "சராசரி தயார்நிலை",
-        drillsThisMonth: "இந்த மாத டிரில்கள்",
-        lowestClass: "குறைந்த வகுப்பு",
-        preparednessScores: "தயார்நிலை மதிப்பெண்கள்",
-        drillParticipation: "டிரில் பங்கேற்பு",
-        classReadinessOverview: "வகுப்பு தயார்நிலை கண்ணோட்டம்",
-        name: "பெயர்",
-        class: "வகுப்பு",
-        score: "மதிப்பெண்",
-        lastDrill: "கடைசி டிரில்",
-        students: "மாணவர்கள்",
-        attended: "பங்கேற்றவர்கள்",
-        percentage: "%",
-        readinessLabel: "தயார்நிலை %"
+    var firebaseConfig = {
+      apiKey: "AIzaSyAJO8evM1zTHiKk9LgQoD9JQ0yCJzHcFB4",
+      authDomain: "disaster-management-1f766.firebaseapp.com",
+      projectId: "disaster-management-1f766",
+      storageBucket: "disaster-management-1f766.firebasestorage.app",
+      messagingSenderId: "570748616582",
+      appId: "1:570748616582:web:f3cb38a280a7a3c4fbf607",
+      measurementId: "G-T2M5PQVHNY"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      auth.onAuthStateChanged(user => {
+        if (user) {
+          const isAdmin = localStorage.getItem("isAdmin") === "true";
+          if (isAdmin) {
+            loadDashboardData();
+          } else {
+            alert("You are not authorized to view this page.");
+            window.location.href = 'index1.html';
+          }
+        } else {
+          window.location.href = 'index.html';
+        }
+      });
+    });
+
+    async function loadDashboardData() {
+      const usersSnapshot = await db.collection('users').get();
+      const users = {};
+      usersSnapshot.forEach(doc => {
+        users[doc.id] = doc.data();
+      });
+
+      const quizResultsSnapshot = await db.collection('quizResults').get();
+      const quizResults = quizResultsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+      renderDashboard(users, quizResults);
+    }
+
+    function assignClass(userId) {
+      const classes = ["8-A", "7-B", "9-A", "8-B", "7-A"];
+      let hash = 0;
+      for (let i = 0; i < userId.length; i++) {
+        hash = (hash << 5) - hash + userId.charCodeAt(i);
+        hash |= 0;
       }
-    };
+      return classes[Math.abs(hash) % classes.length];
+    }
 
-    // Localized student names data
-    const localizedStudentData = {
-      en: [
-        { name: "Aarav Sharma", class: "8-A", score: 92, lastDrill: "2025-09-01" },
-        { name: "Diya Patel", class: "7-B", score: 78, lastDrill: "2025-08-28" },
-        { name: "Kabir Singh", class: "9-A", score: 65, lastDrill: "2025-08-30" },
-        { name: "Ananya Gupta", class: "8-A", score: 88, lastDrill: "2025-09-01" },
-        { name: "Rohan Mehta", class: "7-B", score: 45, lastDrill: "2025-08-25" }
-      ],
-      hi: [
-        { name: "आरव शर्मा", class: "8-अ", score: 92, lastDrill: "2025-09-01" },
-        { name: "दिया पटेल", class: "7-बी", score: 78, lastDrill: "2025-08-28" },
-        { name: "कबीर सिंह", class: "9-अ", score: 65, lastDrill: "2025-08-30" },
-        { name: "अनन्या गुप्ता", class: "8-अ", score: 88, lastDrill: "2025-09-01" },
-        { name: "रोहन मेहता", class: "7-बी", score: 45, lastDrill: "2025-08-25" }
-      ],
-      mr: [
-        { name: "आरव शर्मा", class: "8-अ", score: 92, lastDrill: "2025-09-01" },
-        { name: "दिया पटेल", class: "7-बी", score: 78, lastDrill: "2025-08-28" },
-        { name: "कबीर सिंह", class: "9-अ", score: 65, lastDrill: "2025-08-30" },
-        { name: "अनन्या गुप्ता", class: "8-अ", score: 88, lastDrill: "2025-09-01" },
-        { name: "रोहन मेहता", class: "7-बी", score: 45, lastDrill: "2025-08-25" }
-      ],
-      pa: [
-        { name: "ਆਰਵ ਸ਼ਰਮਾ", class: "8-ਅ", score: 92, lastDrill: "2025-09-01" },
-        { name: "ਦੀਆ ਪਟੇਲ", class: "7-ਬੀ", score: 78, lastDrill: "2025-08-28" },
-        { name: "ਕਬੀਰ ਸਿੰਘ", class: "9-ਅ", score: 65, lastDrill: "2025-08-30" },
-        { name: "ਅਨਨਿਆ ਗੁਪਤਾ", class: "8-ਅ", score: 88, lastDrill: "2025-09-01" },
-        { name: "ਰੋਹਨ ਮੇਹਤਾ", class: "7-ਬੀ", score: 45, lastDrill: "2025-08-25" }
-      ],
-      kn: [
-        { name: "ಆರವ್ ಶರ್ಮಾ", class: "8-ಅ", score: 92, lastDrill: "2025-09-01" },
-        { name: "ದಿಯಾ ಪಟೇಲ್", class: "7-ಬಿ", score: 78, lastDrill: "2025-08-28" },
-        { name: "ಕಬೀರ್ ಸಿಂಗ್", class: "9-ಅ", score: 65, lastDrill: "2025-08-30" },
-        { name: "ಅನನ್ಯಾ ಗುಪ್ತಾ", class: "8-ಅ", score: 88, lastDrill: "2025-09-01" },
-        { name: "ರೋಹನ್ ಮೆಹ್ತಾ", class: "7-ಬಿ", score: 45, lastDrill: "2025-08-25" }
-      ],
-      ta: [
-        { name: "ஆரவ் சர்மா", class: "8-அ", score: 92, lastDrill: "2025-09-01" },
-        { name: "தியா பட்டேல்", class: "7-பி", score: 78, lastDrill: "2025-08-28" },
-        { name: "கபீர் சிங்", class: "9-அ", score: 65, lastDrill: "2025-08-30" },
-        { name: "அனன்யா குப்தா", class: "8-அ", score: 88, lastDrill: "2025-09-01" },
-        { name: "ரோஹன் மேத்தா", class: "7-பி", score: 45, lastDrill: "2025-08-25" }
-      ]
-    };
+    function renderDashboard(users, quizResults) {
+      const totalStudents = Object.keys(users).length;
+      document.getElementById('totalStudents').textContent = totalStudents;
 
-    // Drill data with localized class names
-    const localizedDrillData = {
-      en: [
-        { class: "8-A", total: 42, attended: 39 },
-        { class: "7-B", total: 38, attended: 30 },
-        { class: "9-A", total: 40, attended: 35 }
-      ],
-      hi: [
-        { class: "8-अ", total: 42, attended: 39 },
-        { class: "7-बी", total: 38, attended: 30 },
-        { class: "9-अ", total: 40, attended: 35 }
-      ],
-      mr: [
-        { class: "8-अ", total: 42, attended: 39 },
-        { class: "7-बी", total: 38, attended: 30 },
-        { class: "9-अ", total: 40, attended: 35 }
-      ],
-      pa: [
-        { class: "8-ਅ", total: 42, attended: 39 },
-        { class: "7-ਬੀ", total: 38, attended: 30 },
-        { class: "9-ਅ", total: 40, attended: 35 }
-      ],
-      kn: [
-        { class: "8-ಅ", total: 42, attended: 39 },
-        { class: "7-ಬಿ", total: 38, attended: 30 },
-        { class: "9-ಅ", total: 40, attended: 35 }
-      ],
-      ta: [
-        { class: "8-அ", total: 42, attended: 39 },
-        { class: "7-பி", total: 38, attended: 30 },
-        { class: "9-அ", total: 40, attended: 35 }
-      ]
-    };
+      const totalPercentage = quizResults.reduce((sum, result) => sum + result.percentage, 0);
+      const avgScore = quizResults.length > 0 ? Math.round(totalPercentage / quizResults.length) : 0;
+      document.getElementById('avgScore').textContent = `${avgScore}%`;
 
-    // Translation function
-    function translateDashboard(lang) {
-      const translations = dashboardTranslations[lang] || dashboardTranslations.en;
-      
-      document.querySelectorAll('[data-translate-key]').forEach(element => {
-        const key = element.getAttribute('data-translate-key');
-        if (translations[key]) {
-          element.textContent = translations[key];
+      const oneMonthAgo = new Date();
+      oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+      const drillsThisMonth = quizResults.filter(r => r.date.toDate() > oneMonthAgo).length;
+      document.getElementById('drillCount').textContent = drillsThisMonth;
+
+      const latestScores = {};
+      quizResults.forEach(result => {
+        if (!latestScores[result.userId] || result.date.toMillis() > latestScores[result.userId].date.toMillis()) {
+          latestScores[result.userId] = result;
         }
       });
 
-      // Update chart label
-      const chart = Chart.getChart("readinessChart");
-      if (chart) {
-        chart.data.datasets[0].label = translations.readinessLabel || 'Readiness %';
-        chart.update();
+      const scoreTableBody = document.getElementById('scoreTable');
+      scoreTableBody.innerHTML = Object.keys(latestScores).map(userId => {
+        const user = users[userId];
+        const result = latestScores[userId];
+        if (!user) return '';
+        return `<tr>
+                  <td>${user.name}</td>
+                  <td>${assignClass(userId)}</td>
+                  <td class="text-center font-bold">${result.percentage}%</td>
+                  <td>${result.date.toDate().toLocaleDateString()}</td>
+                </tr>`;
+      }).join('');
+
+      const classData = {};
+      for (const userId in users) {
+        const userClass = assignClass(userId);
+        if (!classData[userClass]) {
+          classData[userClass] = { total: 0, attended: 0, scores: [] };
+        }
+        classData[userClass].total++;
+        if (latestScores[userId]) {
+          classData[userClass].attended++;
+          classData[userClass].scores.push(latestScores[userId].percentage);
+        }
       }
-    }
 
-    // Language change handler
-    function changeLanguage() {
-      const selectedLang = document.getElementById("lang-switch").value;
-      localStorage.setItem("selectedLanguage", selectedLang);
-      translateDashboard(selectedLang);
-      renderData(selectedLang); // Re-render with localized data
-    }
-
-    // Render data with proper alignment and localization
-    function renderData(lang) {
-      const students = localizedStudentData[lang] || localizedStudentData.en;
-      const drills = localizedDrillData[lang] || localizedDrillData.en;
-      const translations = dashboardTranslations[lang] || dashboardTranslations.en;
+      let lowestClass = { name: '-', ratio: 1 };
+        for (const className in classData) {
+            const data = classData[className];
+            const ratio = data.total > 0 ? data.attended / data.total : 0;
+            if (ratio < lowestClass.ratio) {
+                lowestClass = { name: className, ratio: ratio };
+            }
+        }
+      document.getElementById('lowestClass').textContent = lowestClass.name;
       
-      // Update statistics
-      document.getElementById('totalStudents').textContent = students.length;
-      document.getElementById('avgScore').textContent = Math.round(students.reduce((s,st)=>s+st.score,0)/students.length) + '%';
-      document.getElementById('drillCount').textContent = drills.reduce((s,d)=>s+d.attended,0);
-      document.getElementById('lowestClass').textContent = drills.reduce((min,d)=>d.attended/d.total < min.ratio ? {ratio:d.attended/d.total,cls:d.class} : min,{ratio:1}).cls;
+      const drillTableBody = document.getElementById('drillTable');
+      drillTableBody.innerHTML = Object.keys(classData).map(className => {
+          const data = classData[className];
+          const percentage = data.total > 0 ? Math.round((data.attended / data.total) * 100) : 0;
+          return `<tr>
+                    <td>${className}</td>
+                    <td class="text-center">${data.total}</td>
+                    <td class="text-center">${data.attended}</td>
+                    <td class="text-center font-bold">${percentage}%</td>
+                  </tr>`;
+      }).join('');
 
-      // Render student table with proper alignment
-      document.getElementById('scoreTable').innerHTML = students.map(s=>
-        `<tr>
-          <td style="padding: 12px 16px; text-align: left;">${s.name}</td>
-          <td style="padding: 12px 16px; text-align: left;">${s.class}</td>
-          <td style="padding: 12px 16px; text-align: center; font-weight: 600;">${s.score}%</td>
-          <td style="padding: 12px 16px; text-align: left;">${s.lastDrill}</td>
-        </tr>`
-      ).join('');
-      
-      // Render drill table with proper alignment
-      document.getElementById('drillTable').innerHTML = drills.map(d=>
-        `<tr>
-          <td style="padding: 12px 16px; text-align: left;">${d.class}</td>
-          <td style="padding: 12px 16px; text-align: center;">${d.total}</td>
-          <td style="padding: 12px 16px; text-align: center;">${d.attended}</td>
-          <td style="padding: 12px 16px; text-align: center; font-weight: 600;">${Math.round(d.attended/d.total*100)}%</td>
-        </tr>`
-      ).join('');
+      const chartLabels = Object.keys(classData);
+      const chartData = chartLabels.map(className => {
+        const scores = classData[className].scores;
+        return scores.length > 0 ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0;
+      });
 
-      // Clear existing chart and create new one with translated label
       const existingChart = Chart.getChart("readinessChart");
       if (existingChart) {
         existingChart.destroy();
       }
-
       new Chart(document.getElementById('readinessChart'), {
         type:'bar',
         data:{
-          labels: drills.map(d=>d.class),
+          labels: chartLabels,
           datasets:[{
-            label: translations.readinessLabel || 'Readiness %',
-            data: drills.map(d=>Math.round(d.attended/d.total*100)),
+            label: 'Readiness %',
+            data: chartData,
             backgroundColor:'#3b82f6',
             borderColor: '#2563eb',
             borderWidth: 1
@@ -416,37 +283,11 @@
         options:{
           responsive: true,
           maintainAspectRatio: false,
-          scales:{
-            y:{
-              beginAtZero:true,
-              max:100,
-              ticks: {
-                callback: function(value) {
-                  return value + '%';
-                }
-              }
-            }
-          },
-          plugins: {
-            legend: {
-              display: true,
-              position: 'top'
-            }
-          }
+          scales:{ y:{ beginAtZero:true, max:100, ticks: { callback: (v) => v + '%' } } },
+          plugins: { legend: { display: true, position: 'top' } }
         }
       });
     }
-
-    // Initialize language and render
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem("selectedLanguage") || "en";
-      document.getElementById("lang-switch").value = savedLang;
-      translateDashboard(savedLang);
-      renderData(savedLang);
-      
-      // Set up language change listener
-      document.getElementById("lang-switch").addEventListener("change", changeLanguage);
-    });
   </script>
 </body>
 </html>
