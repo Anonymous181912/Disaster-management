@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <input id="q" placeholder="Ask something..." />
+  <button onclick="ask()">Send</button>
+  <pre id="out"></pre>
+  <script src="https://apifreellm.com/apifree.min.js"></script>
+  <script>
+    async function ask(){
+      const i=document.getElementById('q');
+      const o=document.getElementById('out');
+      o.textContent='Thinking...';
+      try {
+        const r= await apifree.chat(i.value);
+        o.textContent=r;
+      } catch(e){ o.textContent='Error'; }
+    }
+  </script>
+</body>
+</html>

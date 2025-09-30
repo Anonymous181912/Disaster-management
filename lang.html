@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Check CDN</title>
+<body>
+  <p id="out">Loading library…</p>
+  <script src="https://cdn.jsdelivr.net/npm/@argos-translate/argos-translate/+esm" type="module"></script>
+  <script type="module">
+    try {
+      const { Translate } = await import('https://cdn.jsdelivr.net/npm/@argos-translate/argos-translate/+esm');
+      document.getElementById('out').textContent = 'Library OK – Argos loaded';
+    } catch (e) {
+      document.getElementById('out').textContent = 'CDN unreachable: ' + e;
+    }
+  </script>
+</body>
+</html>
