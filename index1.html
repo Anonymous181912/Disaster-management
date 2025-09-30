@@ -261,7 +261,7 @@ function toggleHelpline() {
       <button class="nav-link" id="adminBtn" onclick="openDashboard()" data-translate-key="admin">📊 Admin</button>
 
       <button id="nightToggle" class="night-btn">🌙</button>
-<a href="#" onclick="logout()" class="nav-link">Logout</a>
+      <a href="index.html" onclick="localStorage.clear(); firebase.auth().signOut();">logout</a>
     </div>
   </div>
 </nav>
