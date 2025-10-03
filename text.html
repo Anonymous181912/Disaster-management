@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <body>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb"/>
+  <link rel="manifest" href="manifest.webmanifest"/>
   <input id="q" placeholder="Ask something..." />
   <button onclick="ask()">Send</button>
   <pre id="out"></pre>
@@ -16,5 +19,6 @@
       } catch(e){ o.textContent='Error'; }
     }
   </script>
+  <script src="pwa.js" defer></script>
 </body>
 </html>

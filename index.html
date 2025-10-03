@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#2563eb"/>
+  <link rel="manifest" href="manifest.webmanifest"/>
   <title data-translate-key="loginSignupTitle">SafetyFirst - Login & Signup</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
@@ -313,5 +315,6 @@ document.getElementById("loginEmail")
 document.getElementById("loginPassword")
         .addEventListener("keydown", e => { if (e.key === "Enter") login(); });
   </script>
+  <script src="pwa.js" defer></script>
 </body>
 </html>
